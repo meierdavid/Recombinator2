@@ -1,0 +1,385 @@
+html,
+body {
+    height: 100%;
+}
+h1 {
+    margin-left: 45%;
+}
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    padding: 70px 15px 20px;
+}
+
+.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: /*"\e113"*/ "\e151";
+}
+
+a.desc:after {
+    content: /*"\e114"*/ "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view th {
+    white-space: nowrap;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+/* align the logout "link" (button in form) of the navbar */
+.nav li > form > button.logout {
+    padding: 15px;
+    border: none;
+}
+
+@media(max-width:767px) {
+    .nav li > form > button.logout {
+        display:block;
+        text-align: left;
+        width: 100%;
+        padding: 10px 15px;
+    }
+}
+
+.nav > li > form > button.logout:focus,
+.nav > li > form > button.logout:hover {
+    text-decoration: none;
+}
+
+.nav > li > form > button.logout:focus {
+    outline: none;
+}
+
+/*
+* ====================== DAVID =======================
+*/
+
+#refreshButton{
+    visibility: hidden;
+    position: absolute;
+}
+
+#p0{
+     margin-left: 75%;
+}
+
+#m{
+    position:relative;
+    
+  
+}
+
+#test{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+}
+
+#remplissage{
+
+    width: 100px;
+    margin-left: 20px;
+    margin-top: 45px;
+
+}
+
+
+#interface-pompe{
+
+    height:500px; 
+    
+}
+
+#commande{
+    border-style: outset;
+    border-width: 3px;
+    border-color: black;
+    height: 150px;
+   
+}
+
+#CSV{
+    border-style: outset;
+    border-width: 3px;
+    border-color: black;
+    height: 150px;
+    
+}
+
+#osef{
+    border-style: outset;
+    border-width: 3px;
+    border-color: black;
+    height: 150px;
+    
+}
+
+#hiddentab{
+    position: absolute;
+}
+
+#create{
+position: absolute;
+left:950px;
+top:600px;
+z-index: 100;
+
+	
+}
+
+#annuler{
+ margin-left:50px;
+ margin-top:75px
+}
+
+#row-2{
+    margin-top: 20px;
+   
+
+}
+#weight{
+    display: none;
+   
+}
+
+
+#quantity{
+    display: none;
+   
+}
+
+#commandeBis{
+    width: 50%;
+    height: 1%;
+}
+
+#table-interface{
+    position:absolute;
+    left: 300px;
+    top: 0px;
+
+}
+
+#deletegroup{
+    margin-left: 15px;
+}
+
+#udpateSeveral{
+   position:absolute;
+   width: 400px;
+   left:850px;
+top:550px;
+z-index: 100;
+}
+
+#menubarc{
+    position:absolute;
+    top:-50px;
+    left:130%;
+}
+
+#conftocal{
+    margin-left: 200px;
+}
+
+#chgdate{
+  position:absolute;
+    top:-50px;
+    left:15%;  
+}
+
+/*
+* ==================================== TABLE ========================
+*/
+
+.bodyTable
+{
+  margin-bottom: 10px;
+  border: 2px solid #FFF;
+  border-spacing:0;
+  border-radius: 6px;
+  background-color : #FFFFFF;
+  width: 100%;
+} 
+
+th 
+{
+  font-size : 15px;
+  font-weight : bold;
+  color: #fff;
+  background-color: #FFF;
+  color: #00CC00;
+  height: 17px;
+  padding: 5px 10px;
+  text-align: left;
+}
+
+tbody tr:last-child td:first-child
+{
+  border-radius: 0 0 0 5px;
+}
+
+tr:last-child td:last-child
+{
+  border-radius: 0 0 5px 0;
+}
+
+td
+{
+  background-color : #FFFFFF;
+  border: 1px solid #F1F1F1;
+  border-width : 1px 0 0 0;
+  padding: 5px 10px;
+}
+
+tr.row0 td
+{
+  background-color : #FFFFFF;
+  padding: 5px 10px;
+}
+
+tr.row1 td
+{
+  background-color : #FAFAFA;
+  padding: 5px 10px;
+}
+
+th.thCornerR 
+{
+  border-radius: 0px 5px 0 0;
+}
+
+th.thCornerL 
+{
+  border-radius: 5px 0px 0 0;
+} 
+/*
+ --------------------Truth Table ------------------------------
+ 
+ */
+ 
+ table.truthTable 
+{
+  margin-bottom: 10px;
+  border : 1px solid #FAFAFA;
+  border-spacing:0;
+  border-radius: 6px;
+} 
+
+th 
+{
+  font-size : 15px;
+  font-weight : bold;
+  color: #fff;
+  background-color: #FFF;
+  color: #00CC00;
+  height: 17px;
+  padding: 5px 10px;
+}
+
+.truthTable tbody tr:last-child td:first-child
+{
+  border-radius: 0 0 0 5px;
+}
+.truthTable tr:last-child td:last-child
+{
+  border-radius: 0 0 5px 0;
+}
+
+tr.row0 td
+{
+  background-color : #FFFFFF;
+  padding: 5px 10px;
+}
+
+tr.row1 td
+{
+  background-color : #FAFAFA;
+  padding: 5px 10px;
+}
+
+th.thCornerR 
+{
+  border-radius: 0px 5px 0 0;
+}
+
+th.thCornerL 
+{
+  border-radius: 5px 0px 0 0;
+}
+/* ------- Others ------  */
+
+.ajaxLoader
+{
+  z-index: 10000;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: none;
+}

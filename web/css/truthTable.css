@@ -1,0 +1,49 @@
+table.truthTable 
+{
+  margin-bottom: 10px;
+  border : 1px solid #FAFAFA;
+  border-spacing:0;
+  border-radius: 6px;
+} 
+
+th 
+{
+  font-size : 15px;
+  font-weight : bold;
+  color: #fff;
+  background-color: #FFF;
+  color: #00CC00;
+  height: 17px;
+  padding: 5px 10px;
+}
+
+.truthTable tbody tr:last-child td:first-child
+{
+  border-radius: 0 0 0 5px;
+}
+.truthTable tr:last-child td:last-child
+{
+  border-radius: 0 0 5px 0;
+}
+
+tr.row0 td
+{
+  background-color : #FFFFFF;
+  padding: 5px 10px;
+}
+
+tr.row1 td
+{
+  background-color : #FAFAFA;
+  padding: 5px 10px;
+}
+
+th.thCornerR 
+{
+  border-radius: 0px 5px 0 0;
+}
+
+th.thCornerL 
+{
+  border-radius: 5px 0px 0 0;
+}

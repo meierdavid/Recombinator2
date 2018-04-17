@@ -1,0 +1,30 @@
+
+.terminator
+{
+  color: #D93535;
+  font-weight: bold;
+} 
+
+.promoter
+{
+  color: #474747;
+  font-weight: bold;
+} 
+
+.gene
+{
+  color: #5FD75F;
+  font-weight: bold;
+} 
+
+.site_A, .site_B, .site_C, .site_D, .site_E, .site_F, .site_a, .site_b, .site_c, .site_d, .site_e, .site_f
+{
+  font-weight: bold;
+} 
+
+.site_A, .site_a { color: #0254FF; } 
+.site_B, .site_b { color: #FF0000; } 
+.site_C, .site_c { color: #FFE168; } 
+.site_D, .site_d { color: #33CC33; } 
+.site_E, .site_e { color: #00F2F9; } 
+.site_F, .site_f { color: #7030A0; } 
