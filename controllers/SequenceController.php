@@ -243,8 +243,17 @@ class SequenceController extends Controller {
                 
                 $searchResult = Sequence::find()->where('ndf > :ndf', [':ndf' => $dnfArray[0]])->orderBy('weak_constraint')->all();
                 
+                //TEST QUERY
+                //
                 
-                // chaine de 01 avec la fonction get minimal output
+                $searchResult2 = Sequence::find()->orderBy('weak_constraint')->joinWith('Permutassion_class')->joinWith('Functions')->where('ndf > :ndf', [':ndf' => $dnfArray[0]]);
+                
+                $searchResult3 = (new \yii\db\Query())
+                ->select(['dyck_functionnal_structure', 'semantics','nb_inputs', 'length','nb_genes', 'gene_at_ends','nb_parts', 'nb_excisions','nb_inversions', 'weak_constraint','strong_constraint'])
+                ->from('Sequence','Permutation_class','Semantics','Dyck_functionnal_structure','Functions')
+                ->where(['ndf > :ndf', [':ndf' => $dnfArray[0]]])
+                ->all();
+                   // chaine de 01 avec la fonction get minimal output
                 //$wordsManager = new WordsManager($bdd);
                 //$logicManager = new LogicManager($bdd);
 
