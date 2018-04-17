@@ -6,12 +6,12 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Sequences */
+/* @var $model app\models\Sequence */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
 <script src="./js/ajax.js"></script>
-<div class="sequences-form">
+<div class="sequence-form">
 
     <?php $form = ActiveForm::begin(); ?>
     <input type="radio" id="wellFormedFormula"
@@ -24,15 +24,15 @@ use yii\widgets\ActiveForm;
     <label for="contactChoice2">Binary Number</label>
 
     
-        <div id="wff" class="form-group field-sequences-proposition required">
-        <label class="control-label" for="sequences-proposition">well-Formed Formula</label>
-        <input type="text" id="sequences-proposition" class="form-control" name="Sequences[proposition]" aria-required="true" onkeyup="chargeAjax('#resultat', 'index.php?r=sequences%2Fresult&fonction='+encodeURI($('#sequences-proposition').val().replace(/\+/g, '-')));">
+        <div id="wff" class="form-group field-sequence-proposition required">
+        <label class="control-label" for="sequence-proposition">well-Formed Formula</label>
+        <input type="text" id="sequence-proposition" class="form-control" name="Sequence[proposition]" aria-required="true" onkeyup="chargeAjax('#resultat', 'index.php?r=sequence%2Fresult&fonction='+encodeURI($('#sequence-proposition').val().replace(/\+/g, '-')));">
         <div class="help-block"></div>
         </div>
     
-    <div id="bn" class="form-group field-sequences-proposition required" style="display: none">
-<label class="control-label" for="sequences-proposition">Binary Number</label>
-<input type="text" id="sequences-BinaryNumber" class="form-control" name="Sequences[BinaryNumber]" aria-required="true">
+    <div id="bn" class="form-group field-sequence-proposition required" style="display: none">
+<label class="control-label" for="sequence-proposition">Binary Number</label>
+<input type="text" id="sequence-BinaryNumber" class="form-control" name="Sequence[BinaryNumber]" aria-required="true">
 
 <div class="help-block"></div>
 </div>

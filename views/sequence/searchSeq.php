@@ -5,15 +5,15 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Sequences */
+/* @var $model app\models\Sequence */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
 <script src="./js/ajax.js"></script>
-<div class="sequences-form">
+<div class="sequence-form">
 
     <?php $form = ActiveForm::begin([
-'action' => ['sequences/search_seq_treatment']
+'action' => ['sequence/search_seq_treatment']
 ]); ?>
     <input type="radio" id="wellFormedFormula"
            name="form" value="wellFormedFormula" checked>
@@ -29,22 +29,22 @@ use yii\widgets\ActiveForm;
      name="form" value="MultipleFunction" >
     <label for="contactChoice3">Multiple Function</label>
     
-        <div id="wff" class="form-group field-sequences-proposition required">
-        <label class="control-label" for="sequences-proposition">well-Formed Formula</label>
-        <input type="text" id="sequences-proposition" class="form-control" name="Sequences[proposition]" aria-required="true" onkeyup="chargeAjax('#resultat', 'index.php?r=sequences%2Fresult&fonction='+encodeURI($('#sequences-proposition').val().replace(/\+/g, '-')));">
+        <div id="wff" class="form-group field-sequence-proposition required">
+        <label class="control-label" for="sequence-proposition">well-Formed Formula</label>
+        <input type="text" id="sequence-proposition" class="form-control" name="Sequence[proposition]" aria-required="true" onkeyup="chargeAjax('#resultat', 'index.php?r=sequence%2Fresult&fonction='+encodeURI($('#sequence-proposition').val().replace(/\+/g, '-')));">
         <div class="help-block"></div>
         </div>
     
-        <div id="bn" class="form-group field-sequences-proposition required" style="display: none">
-        <label class="control-label" for="sequences-proposition">Binary Number</label>
-        <input type="text" id="sequences-BinaryNumber" class="form-control" name="Sequences[BinaryNumber]" aria-required="true" onkeyup="chargeAjax('#resultat', 'index.php?r=sequences%2Fresult&dnf='+$('#sequences-BinaryNumber').val());">
+        <div id="bn" class="form-group field-sequence-proposition required" style="display: none">
+        <label class="control-label" for="sequence-proposition">Binary Number</label>
+        <input type="text" id="sequence-BinaryNumber" class="form-control" name="Sequence[BinaryNumber]" aria-required="true" onkeyup="chargeAjax('#resultat', 'index.php?r=sequence%2Fresult&dnf='+$('#sequence-BinaryNumber').val());">
 
         <div class="help-block"></div>
         </div>
         
-        <div id="mf" class="form-group field-sequences-proposition required" style="display: none"> 
-            <label class="control-label" for="sequences-proposition">Multiple function</label>
-            <textarea id="sequences-MultipleFunction" class="form-control" name="Sequences[MultipleFunction]" placeholder="Write one function per line"></textarea>    
+        <div id="mf" class="form-group field-sequence-proposition required" style="display: none"> 
+            <label class="control-label" for="sequence-proposition">Multiple function</label>
+            <textarea id="sequence-MultipleFunction" class="form-control" name="Sequence[MultipleFunction]" placeholder="Write one function per line"></textarea>    
             <div class="help-block"></div>
         </div>
     
@@ -66,6 +66,7 @@ var even = document.getElementById("wellFormedFormula");
 even.addEventListener("change",wff);
 var even2 = document.getElementById("BinaryNumber");
 even2.addEventListener("change",bn);
+console.log("test");
 var even3 = document.getElementById("MultipleFunction");
 even3.addEventListener("change",mf);
 function wff(){
@@ -75,9 +76,9 @@ function wff(){
         document.getElementById("wff").style.display = "block";
         document.getElementById("bn").style.display = "none";
         document.getElementById("mf").style.display = "none";
-        document.getElementById("sequences-MultipleFunction").value = "";
-        document.getElementById("sequences-BinaryNumber").value = "";
-        document.getElementById("resultat").innerHTML = " ";
+        document.getElementById("sequence-MultipleFunction").value = "";
+        document.getElementById("sequence-BinaryNumber").value = "";
+        document.getElementById("resultat").innerHTML = "";
     }
   
     
@@ -90,22 +91,22 @@ function bn(){
         document.getElementById("bn").style.display = "block";
         document.getElementById("wff").style.display = "none";
         document.getElementById("mf").style.display = "none";
-        document.getElementById("sequences-MultipleFunction").value = "";
-        document.getElementById("sequences-proposition").value = "";
-        document.getElementById("resultat").innerHTML = " ";
+        document.getElementById("sequence-MultipleFunction").value = "";
+        document.getElementById("sequence-proposition").value = "";
+        document.getElementById("resultat").innerHTML = "";
     }
 }
     
 function mf(){
     var id= document.getElementById("MultipleFunction");
-   
+    console.log("nul");
     if(id.checked==true){
         document.getElementById("bn").style.display = "none";
         document.getElementById("wff").style.display = "none";
         document.getElementById("mf").style.display = "block";
-        document.getElementById("sequences-proposition").value = "";
-        document.getElementById("sequences-BinaryNumbert").value = "";
-        document.getElementById("resultat").innerHTML = " ";
+        document.getElementById("sequence-proposition").value = "";
+        document.getElementById("sequence-BinaryNumber").value = "";
+        document.getElementById("resultat").innerHTML = "";
     }
 }
 

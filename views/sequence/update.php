@@ -3,14 +3,16 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Sequence */
+/* @var $model app\models\Sequences */
 
-$this->title = 'Update Sequence: ' . $model->id_dick_functionnal_structure;
-$this->params['breadcrumbs'][] = ['label' => 'Sequences', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id_dick_functionnal_structure, 'url' => ['view', 'id_dick_functionnal_structure' => $model->id_dick_functionnal_structure, 'id_semantics' => $model->id_semantics]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = Yii::t('app', 'Update {modelClass}: ', [
+    'modelClass' => 'Sequences',
+]) . $model->id_sequence;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Sequences'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->id_sequence, 'url' => ['view', 'id' => $model->id_sequence]];
+$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
-<div class="sequence-update">
+<div class="sequences-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

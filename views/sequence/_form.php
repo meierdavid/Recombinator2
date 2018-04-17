@@ -12,18 +12,24 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'permutations_class')->textInput() ?>
+    <?= $form->field($model, 'semantics')->textInput() ?>
 
-    <?= $form->field($model, 'weak_constraint')->checkbox() ?>
+    <?= $form->field($model, 'functional_structure')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'strong_constraint')->checkbox() ?>
+    <?= $form->field($model, 'weak_constraint')->textInput() ?>
 
-    <?= $form->field($model, 'id_dick_functionnal_structure')->textInput() ?>
+    <?= $form->field($model, 'strong_constraint')->textInput() ?>
 
-    <?= $form->field($model, 'id_semantics')->textInput() ?>
+    <?= $form->field($model, 'size')->textInput() ?>
+
+    <?= $form->field($model, 'nb_genes')->textInput() ?>
+
+    <?= $form->field($model, 'genes_at_ends')->textInput() ?>
+
+    <?= $form->field($model, 'id_permutation_class')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

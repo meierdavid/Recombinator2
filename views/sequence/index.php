@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\SequenceSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Sequences';
+$this->title = Yii::t('app', 'Sequence');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="sequence-index">
@@ -16,7 +16,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Sequence', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create Sequence'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Search Sequence'), ['search_seq'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Interprete Sequence'), ['inter_seq'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,13 +26,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'permutations_class',
-            'weak_constraint:boolean',
-            'strong_constraint:boolean',
-            'id_dick_functionnal_structure',
-            'id_semantics',
+            'id_sequence',
+            'semantics',
+            'functional_structure',
+            'weak_constraint',
+            'strong_constraint',
+            // 'size',
+            // 'nb_genes',
+            // 'genes_at_ends',
+            // 'id_permutation_class',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-</div>
+    
+

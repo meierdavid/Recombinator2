@@ -15,19 +15,27 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'permutations_class') ?>
+    <?= $form->field($model, 'id_sequence') ?>
 
-    <?= $form->field($model, 'weak_constraint')->checkbox() ?>
+    <?= $form->field($model, 'semantics') ?>
 
-    <?= $form->field($model, 'strong_constraint')->checkbox() ?>
+    <?= $form->field($model, 'functional_structure') ?>
 
-    <?= $form->field($model, 'id_dick_functionnal_structure') ?>
+    <?= $form->field($model, 'weak_constraint') ?>
 
-    <?= $form->field($model, 'id_semantics') ?>
+    <?= $form->field($model, 'strong_constraint') ?>
+
+    <?php // echo $form->field($model, 'size') ?>
+
+    <?php // echo $form->field($model, 'nb_genes') ?>
+
+    <?php // echo $form->field($model, 'genes_at_ends') ?>
+
+    <?php // echo $form->field($model, 'id_permutation_class') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
