@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Logicalfunction;
+use app\models\SemanticalBioDevice;
 
 /**
- * LogicalfunctionSearch represents the model behind the search form about `app\models\Logicalfunction`.
+ * SemanticalBioDeviceSearch represents the model behind the search form about `app\models\SemanticalBioDevice`.
  */
-class LogicalfunctionSearch extends Logicalfunction
+class SemanticalBioDeviceSearch extends SemanticalBioDevice
 {
     /**
      * @inheritdoc
@@ -18,7 +18,8 @@ class LogicalfunctionSearch extends Logicalfunction
     public function rules()
     {
         return [
-            [['id_logical_function', 'nb_inputs', 'ndf', 'id_permutation_class'], 'integer'],
+            [['permutations_class', 'id_dick_functionnal_structure', 'id_semantics'], 'integer'],
+            [['weak_constraint', 'strong_constraint'], 'boolean'],
         ];
     }
 
@@ -40,7 +41,7 @@ class LogicalfunctionSearch extends Logicalfunction
      */
     public function search($params)
     {
-        $query = Logicalfunction::find();
+        $query = SemanticalBioDevice::find();
 
         // add conditions that should always apply here
 
@@ -58,10 +59,11 @@ class LogicalfunctionSearch extends Logicalfunction
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id_logical_function' => $this->id_logical_function,
-            'nb_inputs' => $this->nb_inputs,
-            'ndf' => $this->ndf,
-            'id_permutation_class' => $this->id_permutation_class,
+            'permutations_class' => $this->permutations_class,
+            'weak_constraint' => $this->weak_constraint,
+            'strong_constraint' => $this->strong_constraint,
+            'id_dick_functionnal_structure' => $this->id_dick_functionnal_structure,
+            'id_semantics' => $this->id_semantics,
         ]);
 
         return $dataProvider;

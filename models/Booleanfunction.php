@@ -5,21 +5,21 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "functions".
+ * This is the model class for table "boolean_function".
  *
  * @property integer $ndf
  * @property integer $permutations_class
  *
  * @property PermutationsClass $permutationsClass
  */
-class Functions extends \yii\db\ActiveRecord
+class Booleanfunction extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'functions';
+        return 'boolean_function';
     }
 
     /**
