@@ -26,6 +26,7 @@ $config = [
             'class' => 'app\components\VeritasBooleanFunction',
             'class' => 'app\components\VeritasSemanticalBioDevice',
             'class' => 'app\components\PermutationClass',
+            'class' => 'app\components\SemanticalBioDevice',
             
         ],
         'cache' => [
