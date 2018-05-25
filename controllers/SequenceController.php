@@ -3,6 +3,9 @@
 namespace app\controllers;
 
 use Yii;
+use yii\data\ActiveDataProvider;
+use yii\data\ArrayDataProvider;
+use yii\db\Query;
 use app\models\Sequence;
 use app\models\SequenceSearch;
 use yii\web\Controller;
@@ -191,13 +194,13 @@ class SequenceController extends Controller {
     }
 
    public function actionSearch_seq_treatment() {
-        //faire requete
+        
         $searchModel = new SequenceSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         
         $functionArray;
         if ($_POST['form'] == 'wellFormedFormula') {
-            $functionArray[0] = $_POST['Sequence']['wellFormedFormula'];
+            $functionArray[0] = $_POST['Sequence']['proposition'];
         }
         if ($_POST['form'] == 'BinaryNumber') {
             $functionArray[0] = $_POST['Sequence']['BinaryNumber'];
@@ -241,18 +244,44 @@ class SequenceController extends Controller {
                 // Select all from Sequence Where  'ndf' = bindec($veritas->getMinimalOutput() and  
                 // orderby weak_constraint DESC, length ASC
                 
-                $searchResult = Sequence::find()->where('ndf > :ndf', [':ndf' => $dnfArray[0]])->orderBy('weak_constraint')->all();
+                //$searchResult = Sequence::find()->where('ndf > :ndf', [':ndf' => $dnfArray[0]])->orderBy('weak_constraint')->all();
                 
                 //TEST QUERY
-                //
+                $user = (new Query())->select(['*'])->from('users')->join("INNER JOIN", "comment","users.id_user = comment.id_user")->all();
+                $user = new ArrayDataProvider([
+                    'allModels' => $user,
+                    'sort' => [
+                        'attributes' => ['last_name', 'first_name','content'],
+                    ],
+                    'pagination' => [
+                        'pageSize' => 10,
+                    ],
+                ]);
                 
-                $searchResult2 = Sequence::find()->orderBy('weak_constraint')->joinWith('Permutassion_class')->joinWith('Functions')->where('ndf > :ndf', [':ndf' => $dnfArray[0]]);
-                
+                /*$user = new ActiveDataProvider(['query' => $query,
+                                               'pagination' =>['pageSize' => 10,],
+                                               'sort' => [
+                                                   'defaultOrder'=> [
+                                                    'created_at' => SORT_DESC,
+                                                    'title' => SORT_ASC, 
+                                                   ]
+                                               ],
+                                              ]);*/
+                        
+                    $searchResult3 = (new \yii\db\Query())
+                ->select([ '*'])
+                ->from('sequence')->join("INNER JOIN", 'semantics',"sequence.id_semantics = semantics.id_semantics")
+                ->join("INNER JOIN", 'permutations_class', "sequence.permutations_class = permutations_class.permutation_class")
+                ->join("INNER JOIN", 'dyck_functionnal_structure',"sequence.id_dick_functionnal_structure = dyck_functionnal_structure.id_dick_functionnal_structure")
+                ->join("INNER JOIN", 'functions',"functions.permutations_class = permutations_class.permutation_class")
+                ->where(['ndf' => $dnfArray[0]])
+                ->all();
+                //$searchResult2 = Sequence::find()->orderBy('weak_constraint')->joinWith('Permutassion_class')->joinWith('Functions')->where('ndf > :ndf', [':ndf' => $dnfArray[0]]);
+                /*
                 $searchResult3 = (new \yii\db\Query())
                 ->select(['dyck_functionnal_structure', 'semantics','nb_inputs', 'length','nb_genes', 'gene_at_ends','nb_parts', 'nb_excisions','nb_inversions', 'weak_constraint','strong_constraint'])
-                ->from('Sequence','Permutation_class','Semantics','Dyck_functionnal_structure','Functions')
-                ->where(['ndf > :ndf', [':ndf' => $dnfArray[0]]])
-                ->all();
+                ->from('sequence','permutation_class','Semantics','dyck_functionnal_structure','functions')
+                ->where(['ndf' => $dnfArray[0]])->all();*/
                    // chaine de 01 avec la fonction get minimal output
                 //$wordsManager = new WordsManager($bdd);
                 //$logicManager = new LogicManager($bdd);
@@ -275,9 +304,10 @@ class SequenceController extends Controller {
 
                 return $this->render('result', [
                             'searchModel' => $searchModel,
-                            'dataProvider' => $searchResult,
+                            'dataProvider' => $searchResult3,
                             'logic' => $logic,
                             'veritas' => $veritas,
+                            'user' => $user
                 ]);
             } catch (\Exception $e) {
                 return $this->render('erreur', [
