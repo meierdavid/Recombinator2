@@ -24,8 +24,8 @@ $config = [
             'class' => 'app\components\BooleanFunctionManager',
             'class' => 'app\components\OneWaySemantic',
             'class' => 'app\components\VeritasBooleanFunction',
-            'class' => 'app\components\Bitset',
-            'class' => 'app\components\Bitset',
+            'class' => 'app\components\VeritasSemanticalBioDevice',
+            'class' => 'app\components\PermutationClass',
             
         ],
         'cache' => [
