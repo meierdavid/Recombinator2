@@ -292,7 +292,7 @@ class SemanticalBioDeviceController extends Controller
                 'params' => [':dnfvalue' => $dnfArray[0]]
 ]);
                       
-                        
+
                     /*$searchResult3 = (new \yii\db\Query())
                 ->select([ '*'])
                 ->from('sequence')->join("INNER JOIN", 'semantics',"sequence.id_semantics = semantics.id_semantics")
