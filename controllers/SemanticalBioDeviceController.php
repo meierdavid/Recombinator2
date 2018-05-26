@@ -309,10 +309,10 @@ class SemanticalBioDeviceController extends Controller
                 ->from('sequence','permutation_class','Semantics','dyck_functionnal_structure','functions')
                 ->where(['dnf' => $dnfArray[0]])->all();*/
                    // chaine de 01 avec la fonction get minimal output
-                //$wordsManager = new WordsManager($bdd);
+                //$semanticalBioDevicesManager = new SemanticalBioDevicesManager($bdd);
                 //$booleanFunctionManager = new BooleanFunctionManager($bdd);
 
-                /* $pagination = new Pagination(30, $wordsManager->getNombre($booleanFunctionManager->getBooleanFunction(
+                /* $pagination = new Pagination(30, $semanticalBioDevicesManager->getNombre($booleanFunctionManager->getBooleanFunction(
                   ['dnf',bindec($veritas->getMinimalOutput ()),DB::SQL_AND,'nb_inputs',$veritas->getMinimalNbInputs()])->getId_fn()),
                   'listSeq.php?output='.$veritas->getMinimalOutput ()."&amp;nbInputs=".$veritas->getMinimalNbInputs());
                   if (isset($_GET['page'])) $pagination->setPageActuelle($_GET['page']);
@@ -320,7 +320,7 @@ class SemanticalBioDeviceController extends Controller
 
                 //Requête SQL pour récuperer la liste des séquences
                 
-                //$liste = $wordsManager->getListe($pagination, ['dnf', bindec($veritas->getMinimalOutput()), DB::SQL_AND, 'nb_inputs', $veritas->getMinimalNbInputs()], array(['champ' => 'weak_constraint', 'sens' => DB::ORDRE_DESC], ['champ' => 'length', 'sens' => DB::ORDRE_ASC]));
+                //$liste = $semanticalBioDevicesManager->getListe($pagination, ['dnf', bindec($veritas->getMinimalOutput()), DB::SQL_AND, 'nb_inputs', $veritas->getMinimalNbInputs()], array(['champ' => 'weak_constraint', 'sens' => DB::ORDRE_DESC], ['champ' => 'length', 'sens' => DB::ORDRE_ASC]));
 
                 /* $tpl->assign(array(
                   'listeSequence' => $liste,
@@ -342,6 +342,60 @@ class SemanticalBioDeviceController extends Controller
                             'erreur' => $e->getMessage(),
                 ]);
             }
+        }
+    }
+
+    public function actionInter_sbd_res() {
+        if (isset($_GET['sequence'])) {
+            try {
+                if (empty($_GET['sequence']))
+                    throw new \exception(t('The architecture cannot be empty'));
+
+                $semanticalBioDevice = new \app\components\SemanticalBioDevice(urldecode($_GET['sequence']));
+                $semanticalBioDevice->exceptionsIfInvalid();
+
+                setcookie("sequence", urldecode($_GET['sequence']), time() + 365 * 24 * 3600);
+                $veritas = new VeritasSemanticalBioDevice($semanticalBioDevice);
+
+                return $this->render('detailView', [
+                            'semanticalBioDevice' => $semanticalBioDevice,
+                            'veritas' => $veritas,
+                ]);
+            } catch (\Exception $e) {
+
+                return $this->render('erreur', [
+                            'erreur' => $e->getMessage(),
+                ]);
+            }
+        } else {
+            if (isset($_COOKIE['sequence'])) {
+
+                $sequence = $_COOKIE['sequence'];
+                return $this->render('detailView', [
+                            'sequence' => $sequence,
+                ]);
+            } else
+                return $this->render('detailView', [
+                            'sequence' => '',
+                ]);
+        }
+    }
+
+    //Interpreter des Sequence
+    public function actionInter_sbd() {
+        $model = new SemanticalBioDevice();
+
+        if (isset($_POST['Sequence']['proposition'])) {
+
+            // requete SQL A VOIR AVEC GUIGUI
+
+            return $this->render('listeResult', [
+                        'model' => $model,
+            ]);
+        } else {
+            return $this->render('interSbd', [
+                        'model' => $model,
+            ]);
         }
     }
 }

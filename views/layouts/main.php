@@ -37,8 +37,8 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
-            ['label' => 'Interpret a sequence', 'url' => ['/sequence/inter_seq']],
-            ['label' => 'Search Sequences', 'url' => ['/semantical-bio-device/search_sbd']],
+            ['label' => 'Interpret an architecture', 'url' => ['/semantical-bio-device/inter_sbd']],
+            ['label' => 'Search architectures', 'url' => ['/semantical-bio-device/search_sbd']],
         ],
         ]);
     
