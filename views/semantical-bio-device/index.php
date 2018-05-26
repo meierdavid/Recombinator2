@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\BooleanfunctionSearch */
+/* @var $searchModel app\models\SemanticalBioDeviceSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Booleanfunctions';
+$this->title = 'Semantical Bio Devices';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="booleanfunction-index">
+<div class="semantical-bio-device-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Booleanfunction', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Semantical Bio Device', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,8 +24,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'ndf',
-            'permutations_class',
+            'permutation_class',
+            'weak_constraint:boolean',
+            'strong_constraint:boolean',
+            'id_dyck_functionnal_structure',
+            'id_semantics',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

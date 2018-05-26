@@ -7,10 +7,10 @@ use Yii;
 /**
  * This is the model class for table "boolean_function".
  *
- * @property integer $ndf
- * @property integer $permutations_class
+ * @property integer $dnf
+ * @property integer $permutation_class
  *
- * @property PermutationsClass $permutationsClass
+ * @property PermutationClass $permutationClass
  */
 class Booleanfunction extends \yii\db\ActiveRecord
 {
@@ -28,9 +28,9 @@ class Booleanfunction extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ndf'], 'required'],
-            [['ndf', 'permutations_class'], 'integer'],
-            [['permutations_class'], 'exist', 'skipOnError' => true, 'targetClass' => PermutationsClass::className(), 'targetAttribute' => ['permutations_class' => 'permutation_class']],
+            [['dnf'], 'required'],
+            [['dnf', 'permutation_class'], 'integer'],
+            [['permutation_class'], 'exist', 'skipOnError' => true, 'targetClass' => PermutationClass::className(), 'targetAttribute' => ['permutation_class' => 'permutation_class']],
         ];
     }
 
@@ -40,16 +40,16 @@ class Booleanfunction extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ndf' => Yii::t('app', 'Ndf'),
-            'permutations_class' => Yii::t('app', 'Permutations Class'),
+            'dnf' => Yii::t('app', 'Ndf'),
+            'permutation_class' => Yii::t('app', 'Permutation Class'),
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPermutationsClass()
+    public function getPermutationClass()
     {
-        return $this->hasOne(PermutationsClass::className(), ['permutation_class' => 'permutations_class']);
+        return $this->hasOne(PermutationClass::className(), ['permutation_class' => 'permutation_class']);
     }
 }

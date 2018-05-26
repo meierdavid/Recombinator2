@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'dick_functionnal_structure')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'dyck_functionnal_structure')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'nb_excisions')->textInput() ?>
 

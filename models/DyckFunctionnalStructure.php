@@ -7,8 +7,8 @@ use Yii;
 /**
  * This is the model class for table "dyck_functionnal_structure".
  *
- * @property integer $id_dick_functionnal_structure
- * @property string $dick_functionnal_structure
+ * @property integer $id_dyck_functionnal_structure
+ * @property string $dyck_functionnal_structure
  * @property integer $nb_excisions
  * @property integer $nb_inversions
  *
@@ -32,7 +32,7 @@ class DyckFunctionnalStructure extends \yii\db\ActiveRecord
     {
         return [
             [['nb_excisions', 'nb_inversions'], 'integer'],
-            [['dick_functionnal_structure'], 'string', 'max' => 18],
+            [['dyck_functionnal_structure'], 'string', 'max' => 18],
         ];
     }
 
@@ -42,8 +42,8 @@ class DyckFunctionnalStructure extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_dick_functionnal_structure' => Yii::t('app', 'Id Dick Functionnal Structure'),
-            'dick_functionnal_structure' => Yii::t('app', 'Dick Functionnal Structure'),
+            'id_dyck_functionnal_structure' => Yii::t('app', 'Id Dick Functionnal Structure'),
+            'dyck_functionnal_structure' => Yii::t('app', 'Dick Functionnal Structure'),
             'nb_excisions' => Yii::t('app', 'Nb Excisions'),
             'nb_inversions' => Yii::t('app', 'Nb Inversions'),
         ];
@@ -54,7 +54,7 @@ class DyckFunctionnalStructure extends \yii\db\ActiveRecord
      */
     public function getSequences()
     {
-        return $this->hasMany(Sequence::className(), ['id_dick_functionnal_structure' => 'id_dick_functionnal_structure']);
+        return $this->hasMany(Sequence::className(), ['id_dyck_functionnal_structure' => 'id_dyck_functionnal_structure']);
     }
 
     /**
@@ -62,6 +62,6 @@ class DyckFunctionnalStructure extends \yii\db\ActiveRecord
      */
     public function getIdSemantics()
     {
-        return $this->hasMany(Semantics::className(), ['id_semantics' => 'id_semantics'])->viaTable('sequence', ['id_dick_functionnal_structure' => 'id_dick_functionnal_structure']);
+        return $this->hasMany(Semantics::className(), ['id_semantics' => 'id_semantics'])->viaTable('sequence', ['id_dyck_functionnal_structure' => 'id_dyck_functionnal_structure']);
     }
 }

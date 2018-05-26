@@ -4,17 +4,19 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Booleanfunction */
+/* @var $model app\models\DyckFunctionnalStructure */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="booleanfunction-form">
+<div class="dyck-functionnal-structure-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'ndf')->textInput() ?>
+    <?= $form->field($model, 'dyck_functionnal_structure')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'permutations_class')->textInput() ?>
+    <?= $form->field($model, 'nb_excisions')->textInput() ?>
+
+    <?= $form->field($model, 'nb_inversions')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

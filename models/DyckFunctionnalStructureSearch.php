@@ -18,8 +18,8 @@ class DyckFunctionnalStructureSearch extends DyckFunctionnalStructure
     public function rules()
     {
         return [
-            [['id_dick_functionnal_structure', 'nb_excisions', 'nb_inversions'], 'integer'],
-            [['dick_functionnal_structure'], 'safe'],
+            [['id_dyck_functionnal_structure', 'nb_excisions', 'nb_inversions'], 'integer'],
+            [['dyck_functionnal_structure'], 'safe'],
         ];
     }
 
@@ -59,12 +59,12 @@ class DyckFunctionnalStructureSearch extends DyckFunctionnalStructure
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id_dick_functionnal_structure' => $this->id_dick_functionnal_structure,
+            'id_dyck_functionnal_structure' => $this->id_dyck_functionnal_structure,
             'nb_excisions' => $this->nb_excisions,
             'nb_inversions' => $this->nb_inversions,
         ]);
 
-        $query->andFilterWhere(['like', 'dick_functionnal_structure', $this->dick_functionnal_structure]);
+        $query->andFilterWhere(['like', 'dyck_functionnal_structure', $this->dyck_functionnal_structure]);
 
         return $dataProvider;
     }

@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\SemanticalBioDevice */
 
-$this->title = $model->id_dick_functionnal_structure;
+$this->title = $model->id_dyck_functionnal_structure;
 $this->params['breadcrumbs'][] = ['label' => 'Semantical Bio Devices', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id_dick_functionnal_structure' => $model->id_dick_functionnal_structure, 'id_semantics' => $model->id_semantics], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id_dick_functionnal_structure' => $model->id_dick_functionnal_structure, 'id_semantics' => $model->id_semantics], [
+        <?= Html::a('Update', ['update', 'id_dyck_functionnal_structure' => $model->id_dyck_functionnal_structure, 'id_semantics' => $model->id_semantics], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id_dyck_functionnal_structure' => $model->id_dyck_functionnal_structure, 'id_semantics' => $model->id_semantics], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -28,10 +28,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'permutations_class',
+            'permutation_class',
             'weak_constraint:boolean',
             'strong_constraint:boolean',
-            'id_dick_functionnal_structure',
+            'id_dyck_functionnal_structure',
             'id_semantics',
         ],
     ]) ?>

@@ -11,7 +11,9 @@ function chargeAjax (idBalise, lien)
 		},
 		error:function(XMLHttpRequest,textStatus, errorThrown){
 			$(idBalise).empty();
-			$(idBalise).append("error");
+			$(idBalise).append(errorThrown);
+			$(idBalise).append('<br />');
+			$(idBalise).append(XMLHttpRequest.responseText);
 			$('.ajaxLoader').toggle();
 		}
 	})

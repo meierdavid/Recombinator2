@@ -38,7 +38,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav'],
         'items' => [
             ['label' => 'Interpret a sequence', 'url' => ['/sequence/inter_seq']],
-            ['label' => 'Search Sequences', 'url' => ['/sequence/search_seq']],
+            ['label' => 'Search Sequences', 'url' => ['/semantical-bio-device/search_sbd']],
         ],
         ]);
     

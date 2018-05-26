@@ -18,7 +18,7 @@ class SequenceSearch extends Sequence
     public function rules()
     {
         return [
-            [['permutations_class', 'id_dick_functionnal_structure', 'id_semantics'], 'integer'],
+            [['permutation_class', 'id_dyck_functionnal_structure', 'id_semantics'], 'integer'],
             [['weak_constraint', 'strong_constraint'], 'boolean'],
         ];
     }
@@ -59,10 +59,10 @@ class SequenceSearch extends Sequence
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'permutations_class' => $this->permutations_class,
+            'permutation_class' => $this->permutation_class,
             'weak_constraint' => $this->weak_constraint,
             'strong_constraint' => $this->strong_constraint,
-            'id_dick_functionnal_structure' => $this->id_dick_functionnal_structure,
+            'id_dyck_functionnal_structure' => $this->id_dyck_functionnal_structure,
             'id_semantics' => $this->id_semantics,
         ]);
 

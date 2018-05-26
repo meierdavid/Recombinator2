@@ -21,7 +21,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id_user') ?>
 
-    <?= $form->field($model, 'id_dick_functionnal_structure') ?>
+    <?= $form->field($model, 'id_dyck_functionnal_structure') ?>
 
     <?= $form->field($model, 'id_semantics') ?>
 

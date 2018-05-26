@@ -3,14 +3,14 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\PermutationsClass */
+/* @var $model app\models\PermutationClass */
 
-$this->title = 'Update Permutations Class: ' . $model->permutation_class;
-$this->params['breadcrumbs'][] = ['label' => 'Permutations Classes', 'url' => ['index']];
+$this->title = 'Update Permutation Class: ' . $model->permutation_class;
+$this->params['breadcrumbs'][] = ['label' => 'Permutation Classes', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->permutation_class, 'url' => ['view', 'id' => $model->permutation_class]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="permutations-class-update">
+<div class="permutation-class-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

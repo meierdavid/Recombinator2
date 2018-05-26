@@ -5,9 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\DyckFunctionnalStructure */
 
-$this->title = 'Update Dyck Functionnal Structure: ' . $model->id_dick_functionnal_structure;
+$this->title = 'Update Dyck Functionnal Structure: ' . $model->id_dyck_functionnal_structure;
 $this->params['breadcrumbs'][] = ['label' => 'Dyck Functionnal Structures', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id_dick_functionnal_structure, 'url' => ['view', 'id' => $model->id_dick_functionnal_structure]];
+$this->params['breadcrumbs'][] = ['label' => $model->id_dyck_functionnal_structure, 'url' => ['view', 'id' => $model->id_dyck_functionnal_structure]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="dyck-functionnal-structure-update">

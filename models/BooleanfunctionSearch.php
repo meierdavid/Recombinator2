@@ -18,7 +18,7 @@ class BooleanfunctionSearch extends Booleanfunction
     public function rules()
     {
         return [
-            [['ndf', 'permutations_class'], 'integer'],
+            [['dnf', 'permutation_class'], 'integer'],
         ];
     }
 
@@ -58,8 +58,8 @@ class BooleanfunctionSearch extends Booleanfunction
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'ndf' => $this->ndf,
-            'permutations_class' => $this->permutations_class,
+            'dnf' => $this->dnf,
+            'permutation_class' => $this->permutation_class,
         ]);
 
         return $dataProvider;

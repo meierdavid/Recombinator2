@@ -12,13 +12,13 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'permutations_class')->textInput() ?>
+    <?= $form->field($model, 'permutation_class')->textInput() ?>
 
     <?= $form->field($model, 'weak_constraint')->checkbox() ?>
 
     <?= $form->field($model, 'strong_constraint')->checkbox() ?>
 
-    <?= $form->field($model, 'id_dick_functionnal_structure')->textInput() ?>
+    <?= $form->field($model, 'id_dyck_functionnal_structure')->textInput() ?>
 
     <?= $form->field($model, 'id_semantics')->textInput() ?>
 

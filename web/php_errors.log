@@ -1,0 +1,529 @@
+[25-May-2018 21:16:59 UTC] PHP Fatal error:  Call to undefined method app\components\Semantic::isEpsilon() in /var/www/html/gitAJour/Recombinator2/components/Word.php on line 807
+[25-May-2018 21:17:00 UTC] PHP Fatal error:  Call to undefined method app\components\Semantic::isEpsilon() in /var/www/html/gitAJour/Recombinator2/components/Word.php on line 807
+[25-May-2018 21:17:00 UTC] PHP Fatal error:  Call to undefined method app\components\Semantic::isEpsilon() in /var/www/html/gitAJour/Recombinator2/components/Word.php on line 807
+[25-May-2018 21:17:00 UTC] PHP Fatal error:  Call to undefined method app\components\Semantic::isEpsilon() in /var/www/html/gitAJour/Recombinator2/components/Word.php on line 807
+[26-May-2018 10:12:23 UTC] An Error occurred while handling another error:
+exception 'ReflectionException' with message 'Method yii\widgets\BaseListView::yii\widgets\{closure}() does not exist' in /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php:199
+Stack trace:
+#0 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(199): ReflectionMethod->__construct('yii\widgets\Bas...', 'yii\widgets\{cl...')
+#1 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->addTypeLinks('yii\widgets\Bas...')
+#2 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(328): require('/var/www/html/g...')
+#3 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#4 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#5 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(308): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#6 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem(NULL, NULL, 'yii\widgets\Bas...', 'yii\widgets\{cl...', Array, 13)
+#7 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(328): require('/var/www/html/g...')
+#8 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#9 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#10 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(114): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#11 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\UnknownPropertyException))
+#12 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\UnknownPropertyException))
+#13 {main}
+Previous exception:
+exception 'yii\base\UnknownPropertyException' with message 'Getting unknown property: app\models\SemanticalBioDevice::permutations_class' in /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Component.php:147
+Stack trace:
+#0 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/db/BaseActiveRecord.php(286): yii\base\Component->__get('permutations_cl...')
+#1 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/helpers/BaseArrayHelper.php(209): yii\db\BaseActiveRecord->__get('permutations_cl...')
+#2 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/DataColumn.php(216): yii\helpers\BaseArrayHelper::getValue(Object(app\models\SemanticalBioDevice), 'permutations_cl...')
+#3 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/DataColumn.php(227): yii\grid\DataColumn->getDataCellValue(Object(app\models\SemanticalBioDevice), Array, 0)
+#4 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/Column.php(110): yii\grid\DataColumn->renderDataCellContent(Object(app\models\SemanticalBioDevice), Array, 0)
+#5 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(507): yii\grid\Column->renderDataCell(Object(app\models\SemanticalBioDevice), Array, 0)
+#6 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(476): yii\grid\GridView->renderTableRow(Object(app\models\SemanticalBioDevice), Array, 0)
+#7 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(347): yii\grid\GridView->renderTableBody()
+#8 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php(155): yii\grid\GridView->renderItems()
+#9 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(316): yii\widgets\BaseListView->renderSection('{items}')
+#10 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php(130): yii\grid\GridView->renderSection('{items}')
+#11 [internal function]: yii\widgets\BaseListView->yii\widgets\{closure}(Array)
+#12 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php(133): preg_replace_callback('/{\w+}/', Object(Closure), '{summary}?{item...')
+#13 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(291): yii\widgets\BaseListView->run()
+#14 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Widget.php(139): yii\grid\GridView->run()
+#15 /var/www/html/gitAJour/Recombinator2/views/semantical-bio-device/index.php(35): yii\base\Widget::widget(Array)
+#16 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(328): require('/var/www/html/g...')
+#17 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#18 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(152): yii\base\View->renderFile('/var/www/html/g...', Array, Object(app\controllers\SemanticalBioDeviceController))
+#19 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Controller.php(381): yii\base\View->render('index', Array, Object(app\controllers\SemanticalBioDeviceController))
+#20 /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php(44): yii\base\Controller->render('index', Array)
+#21 [internal function]: app\controllers\SemanticalBioDeviceController->actionIndex()
+#22 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#23 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#24 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('', Array)
+#25 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('semantical-bio-...', Array)
+#26 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#27 /var/www/html/gitAJour/Recombinator2/web/index.php(12): yii\base\Application->run()
+#28 {main}
+$_SERVER = [
+    'HTTP_HOST' => 'localhost',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_COOKIE' => 'PHPSESSID=jigf7j4av6pc9c315nk5empt87; _csrf=ad112467eec55f2f1533e64e9ce4d0b54270cd9f2f8c1bc7988de9a1a9611e04a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22anF6iRh7Gjbll3D4mjsFiXXdOe3aieso%22%3B%7D',
+    'HTTP_DNT' => '1',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+',
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)',
+    'SERVER_NAME' => 'localhost',
+    'SERVER_ADDR' => '127.0.0.1',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '127.0.0.1',
+    'DOCUMENT_ROOT' => '/var/www/html',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html',
+    'SERVER_ADMIN' => 'webmaster@localhost',
+    'SCRIPT_FILENAME' => '/var/www/html/gitAJour/Recombinator2/web/index.php',
+    'REMOTE_PORT' => '59994',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => 'r=semantical-bio-device',
+    'REQUEST_URI' => '/gitAJour/Recombinator2/web/index.php?r=semantical-bio-device',
+    'SCRIPT_NAME' => '/gitAJour/Recombinator2/web/index.php',
+    'PHP_SELF' => '/gitAJour/Recombinator2/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1527329542.526,
+    'REQUEST_TIME' => 1527329542,
+]
+[26-May-2018 10:14:51 UTC] An Error occurred while handling another error:
+exception 'ReflectionException' with message 'Method yii\widgets\BaseListView::yii\widgets\{closure}() does not exist' in /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php:199
+Stack trace:
+#0 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(199): ReflectionMethod->__construct('yii\widgets\Bas...', 'yii\widgets\{cl...')
+#1 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->addTypeLinks('yii\widgets\Bas...')
+#2 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(328): require('/var/www/html/g...')
+#3 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#4 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#5 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(308): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#6 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem(NULL, NULL, 'yii\widgets\Bas...', 'yii\widgets\{cl...', Array, 13)
+#7 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(328): require('/var/www/html/g...')
+#8 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#9 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(253): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#10 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(114): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#11 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\UnknownPropertyException))
+#12 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\UnknownPropertyException))
+#13 {main}
+Previous exception:
+exception 'yii\base\UnknownPropertyException' with message 'Getting unknown property: app\models\SemanticalBioDevice::id_dick_functionnal_structure' in /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Component.php:147
+Stack trace:
+#0 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/db/BaseActiveRecord.php(286): yii\base\Component->__get('id_dick_functio...')
+#1 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/helpers/BaseArrayHelper.php(209): yii\db\BaseActiveRecord->__get('id_dick_functio...')
+#2 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/DataColumn.php(216): yii\helpers\BaseArrayHelper::getValue(Object(app\models\SemanticalBioDevice), 'id_dick_functio...')
+#3 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/DataColumn.php(227): yii\grid\DataColumn->getDataCellValue(Object(app\models\SemanticalBioDevice), Array, 0)
+#4 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/Column.php(110): yii\grid\DataColumn->renderDataCellContent(Object(app\models\SemanticalBioDevice), Array, 0)
+#5 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(507): yii\grid\Column->renderDataCell(Object(app\models\SemanticalBioDevice), Array, 0)
+#6 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(476): yii\grid\GridView->renderTableRow(Object(app\models\SemanticalBioDevice), Array, 0)
+#7 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(347): yii\grid\GridView->renderTableBody()
+#8 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php(155): yii\grid\GridView->renderItems()
+#9 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(316): yii\widgets\BaseListView->renderSection('{items}')
+#10 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php(130): yii\grid\GridView->renderSection('{items}')
+#11 [internal function]: yii\widgets\BaseListView->yii\widgets\{closure}(Array)
+#12 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php(133): preg_replace_callback('/{\w+}/', Object(Closure), '{summary}?{item...')
+#13 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(291): yii\widgets\BaseListView->run()
+#14 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Widget.php(139): yii\grid\GridView->run()
+#15 /var/www/html/gitAJour/Recombinator2/views/semantical-bio-device/index.php(35): yii\base\Widget::widget(Array)
+#16 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(328): require('/var/www/html/g...')
+#17 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#18 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(152): yii\base\View->renderFile('/var/www/html/g...', Array, Object(app\controllers\SemanticalBioDeviceController))
+#19 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Controller.php(381): yii\base\View->render('index', Array, Object(app\controllers\SemanticalBioDeviceController))
+#20 /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php(44): yii\base\Controller->render('index', Array)
+#21 [internal function]: app\controllers\SemanticalBioDeviceController->actionIndex()
+#22 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#23 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#24 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('', Array)
+#25 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('semantical-bio-...', Array)
+#26 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#27 /var/www/html/gitAJour/Recombinator2/web/index.php(12): yii\base\Application->run()
+#28 {main}
+$_SERVER = [
+    'HTTP_HOST' => 'localhost',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_COOKIE' => 'PHPSESSID=jigf7j4av6pc9c315nk5empt87; _csrf=ad112467eec55f2f1533e64e9ce4d0b54270cd9f2f8c1bc7988de9a1a9611e04a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22anF6iRh7Gjbll3D4mjsFiXXdOe3aieso%22%3B%7D',
+    'HTTP_DNT' => '1',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+',
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)',
+    'SERVER_NAME' => 'localhost',
+    'SERVER_ADDR' => '127.0.0.1',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '127.0.0.1',
+    'DOCUMENT_ROOT' => '/var/www/html',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html',
+    'SERVER_ADMIN' => 'webmaster@localhost',
+    'SCRIPT_FILENAME' => '/var/www/html/gitAJour/Recombinator2/web/index.php',
+    'REMOTE_PORT' => '60055',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => 'r=semantical-bio-device',
+    'REQUEST_URI' => '/gitAJour/Recombinator2/web/index.php?r=semantical-bio-device',
+    'SCRIPT_NAME' => '/gitAJour/Recombinator2/web/index.php',
+    'PHP_SELF' => '/gitAJour/Recombinator2/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1527329691.4679999,
+    'REQUEST_TIME' => 1527329691,
+]
+[26-May-2018 10:20:00 UTC] PHP Fatal error:  Class 'app\controllers\Sequence' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 130
+[26-May-2018 10:24:55 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 10:24:56 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 10:24:56 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 10:24:56 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 10:24:56 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 10:26:52 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 10:26:56 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 10:26:59 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 10:26:59 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 10:27:00 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 10:27:38 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 10:27:42 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 10:28:06 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 10:28:16 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 10:28:18 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 11:01:33 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 11:01:35 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 11:02:09 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 11:02:17 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 11:03:27 UTC] PHP Fatal error:  Class 'app\controllers\BooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 157
+[26-May-2018 11:05:31 UTC] PHP Fatal error:  Class 'app\controllers\VeritasBooleanFunction' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 159
+[26-May-2018 11:05:57 UTC] PHP Fatal error:  Class 'app\controllers\MinimalDisjunctiveForm' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 190
+[26-May-2018 11:15:05 UTC] An Error occurred while handling another error:
+exception 'ReflectionException' with message 'Method yii\widgets\BaseListView::yii\widgets\{closure}() does not exist' in /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php:199
+Stack trace:
+#0 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(199): ReflectionMethod->__construct('yii\widgets\Bas...', 'yii\widgets\{cl...')
+#1 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->addTypeLinks('yii\widgets\Bas...')
+#2 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(249): require('/var/www/html/g...')
+#3 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(308): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#4 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem(NULL, NULL, 'yii\widgets\Bas...', 'yii\widgets\{cl...', Array, 15)
+#5 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(249): require('/var/www/html/g...')
+#6 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(114): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#7 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#8 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#9 {main}
+Previous exception:
+exception 'yii\base\ErrorException' with message 'htmlspecialchars() expects parameter 1 to be string, resource given' in /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/helpers/BaseHtml.php:104
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'htmlspecialchar...', '/var/www/html/g...', 104, Array)
+#1 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/helpers/BaseHtml.php(104): htmlspecialchars(Resource id #6, 11, 'UTF-8', true)
+#2 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/i18n/Formatter.php(351): yii\helpers\BaseHtml::encode(Resource id #6)
+#3 [internal function]: yii\i18n\Formatter->asText(Resource id #6)
+#4 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/i18n/Formatter.php(316): call_user_func_array(Array, Array)
+#5 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/DataColumn.php(227): yii\i18n\Formatter->format(Resource id #6, 'text')
+#6 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/Column.php(110): yii\grid\DataColumn->renderDataCellContent(Object(app\models\Semantics), 1, 0)
+#7 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(507): yii\grid\Column->renderDataCell(Object(app\models\Semantics), 1, 0)
+#8 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(476): yii\grid\GridView->renderTableRow(Object(app\models\Semantics), 1, 0)
+#9 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(347): yii\grid\GridView->renderTableBody()
+#10 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php(155): yii\grid\GridView->renderItems()
+#11 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(316): yii\widgets\BaseListView->renderSection('{items}')
+#12 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php(130): yii\grid\GridView->renderSection('{items}')
+#13 [internal function]: yii\widgets\BaseListView->yii\widgets\{closure}(Array)
+#14 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php(133): preg_replace_callback('/{\w+}/', Object(Closure), '{summary}?{item...')
+#15 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(291): yii\widgets\BaseListView->run()
+#16 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Widget.php(139): yii\grid\GridView->run()
+#17 /var/www/html/gitAJour/Recombinator2/views/semantics/index.php(36): yii\base\Widget::widget(Array)
+#18 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(328): require('/var/www/html/g...')
+#19 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#20 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(152): yii\base\View->renderFile('/var/www/html/g...', Array, Object(app\controllers\SemanticsController))
+#21 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Controller.php(381): yii\base\View->render('index', Array, Object(app\controllers\SemanticsController))
+#22 /var/www/html/gitAJour/Recombinator2/controllers/SemanticsController.php(44): yii\base\Controller->render('index', Array)
+#23 [internal function]: app\controllers\SemanticsController->actionIndex()
+#24 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#25 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#26 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('', Array)
+#27 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('semantics', Array)
+#28 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#29 /var/www/html/gitAJour/Recombinator2/web/index.php(12): yii\base\Application->run()
+#30 {main}
+$_SERVER = [
+    'HTTP_HOST' => 'localhost',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_COOKIE' => 'fonction=a%2Bb; dnf=01001111; PHPSESSID=jigf7j4av6pc9c315nk5empt87; _csrf=ad112467eec55f2f1533e64e9ce4d0b54270cd9f2f8c1bc7988de9a1a9611e04a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22anF6iRh7Gjbll3D4mjsFiXXdOe3aieso%22%3B%7D',
+    'HTTP_DNT' => '1',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+',
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)',
+    'SERVER_NAME' => 'localhost',
+    'SERVER_ADDR' => '127.0.0.1',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '127.0.0.1',
+    'DOCUMENT_ROOT' => '/var/www/html',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html',
+    'SERVER_ADMIN' => 'webmaster@localhost',
+    'SCRIPT_FILENAME' => '/var/www/html/gitAJour/Recombinator2/web/index.php',
+    'REMOTE_PORT' => '34475',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => 'r=semantics',
+    'REQUEST_URI' => '/gitAJour/Recombinator2/web/index.php?r=semantics',
+    'SCRIPT_NAME' => '/gitAJour/Recombinator2/web/index.php',
+    'PHP_SELF' => '/gitAJour/Recombinator2/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1527333304.4760001,
+    'REQUEST_TIME' => 1527333304,
+]
+[26-May-2018 11:15:39 UTC] An Error occurred while handling another error:
+exception 'ReflectionException' with message 'Method yii\widgets\BaseListView::yii\widgets\{closure}() does not exist' in /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php:199
+Stack trace:
+#0 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(199): ReflectionMethod->__construct('yii\widgets\Bas...', 'yii\widgets\{cl...')
+#1 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->addTypeLinks('yii\widgets\Bas...')
+#2 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(249): require('/var/www/html/g...')
+#3 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(308): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#4 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem(NULL, NULL, 'yii\widgets\Bas...', 'yii\widgets\{cl...', Array, 15)
+#5 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(249): require('/var/www/html/g...')
+#6 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(114): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#7 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#8 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#9 {main}
+Previous exception:
+exception 'yii\base\ErrorException' with message 'htmlspecialchars() expects parameter 1 to be string, resource given' in /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/helpers/BaseHtml.php:104
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'htmlspecialchar...', '/var/www/html/g...', 104, Array)
+#1 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/helpers/BaseHtml.php(104): htmlspecialchars(Resource id #2, 11, 'UTF-8', true)
+#2 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/i18n/Formatter.php(351): yii\helpers\BaseHtml::encode(Resource id #2)
+#3 [internal function]: yii\i18n\Formatter->asText(Resource id #2)
+#4 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/i18n/Formatter.php(316): call_user_func_array(Array, Array)
+#5 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/DataColumn.php(227): yii\i18n\Formatter->format(Resource id #2, 'text')
+#6 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/Column.php(110): yii\grid\DataColumn->renderDataCellContent(Object(app\models\Semantics), 1, 0)
+#7 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(507): yii\grid\Column->renderDataCell(Object(app\models\Semantics), 1, 0)
+#8 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(476): yii\grid\GridView->renderTableRow(Object(app\models\Semantics), 1, 0)
+#9 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(347): yii\grid\GridView->renderTableBody()
+#10 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php(155): yii\grid\GridView->renderItems()
+#11 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(316): yii\widgets\BaseListView->renderSection('{items}')
+#12 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php(130): yii\grid\GridView->renderSection('{items}')
+#13 [internal function]: yii\widgets\BaseListView->yii\widgets\{closure}(Array)
+#14 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php(133): preg_replace_callback('/{\w+}/', Object(Closure), '{summary}?{item...')
+#15 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(291): yii\widgets\BaseListView->run()
+#16 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Widget.php(139): yii\grid\GridView->run()
+#17 /var/www/html/gitAJour/Recombinator2/views/semantics/index.php(36): yii\base\Widget::widget(Array)
+#18 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(328): require('/var/www/html/g...')
+#19 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#20 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(152): yii\base\View->renderFile('/var/www/html/g...', Array, Object(app\controllers\SemanticsController))
+#21 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Controller.php(381): yii\base\View->render('index', Array, Object(app\controllers\SemanticsController))
+#22 /var/www/html/gitAJour/Recombinator2/controllers/SemanticsController.php(44): yii\base\Controller->render('index', Array)
+#23 [internal function]: app\controllers\SemanticsController->actionIndex()
+#24 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#25 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#26 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('', Array)
+#27 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('semantics', Array)
+#28 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#29 /var/www/html/gitAJour/Recombinator2/web/index.php(12): yii\base\Application->run()
+#30 {main}
+$_SERVER = [
+    'HTTP_HOST' => 'localhost',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_COOKIE' => 'fonction=a%2Bb; dnf=01001111; PHPSESSID=jigf7j4av6pc9c315nk5empt87; _csrf=ad112467eec55f2f1533e64e9ce4d0b54270cd9f2f8c1bc7988de9a1a9611e04a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22anF6iRh7Gjbll3D4mjsFiXXdOe3aieso%22%3B%7D',
+    'HTTP_DNT' => '1',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+',
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)',
+    'SERVER_NAME' => 'localhost',
+    'SERVER_ADDR' => '127.0.0.1',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '127.0.0.1',
+    'DOCUMENT_ROOT' => '/var/www/html',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html',
+    'SERVER_ADMIN' => 'webmaster@localhost',
+    'SCRIPT_FILENAME' => '/var/www/html/gitAJour/Recombinator2/web/index.php',
+    'REMOTE_PORT' => '34488',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => 'r=semantics',
+    'REQUEST_URI' => '/gitAJour/Recombinator2/web/index.php?r=semantics',
+    'SCRIPT_NAME' => '/gitAJour/Recombinator2/web/index.php',
+    'PHP_SELF' => '/gitAJour/Recombinator2/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1527333338.921,
+    'REQUEST_TIME' => 1527333338,
+]
+[26-May-2018 11:16:26 UTC] An Error occurred while handling another error:
+exception 'ReflectionException' with message 'Method yii\widgets\BaseListView::yii\widgets\{closure}() does not exist' in /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php:199
+Stack trace:
+#0 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(199): ReflectionMethod->__construct('yii\widgets\Bas...', 'yii\widgets\{cl...')
+#1 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->addTypeLinks('yii\widgets\Bas...')
+#2 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(249): require('/var/www/html/g...')
+#3 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(308): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#4 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem(NULL, NULL, 'yii\widgets\Bas...', 'yii\widgets\{cl...', Array, 15)
+#5 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(249): require('/var/www/html/g...')
+#6 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(114): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#7 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#8 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#9 {main}
+Previous exception:
+exception 'yii\base\ErrorException' with message 'htmlspecialchars() expects parameter 1 to be string, resource given' in /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/helpers/BaseHtml.php:104
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'htmlspecialchar...', '/var/www/html/g...', 104, Array)
+#1 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/helpers/BaseHtml.php(104): htmlspecialchars(Resource id #2, 11, 'UTF-8', true)
+#2 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/i18n/Formatter.php(351): yii\helpers\BaseHtml::encode(Resource id #2)
+#3 [internal function]: yii\i18n\Formatter->asText(Resource id #2)
+#4 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/i18n/Formatter.php(316): call_user_func_array(Array, Array)
+#5 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/DataColumn.php(227): yii\i18n\Formatter->format(Resource id #2, 'text')
+#6 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/Column.php(110): yii\grid\DataColumn->renderDataCellContent(Object(app\models\Semantics), 1, 0)
+#7 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(507): yii\grid\Column->renderDataCell(Object(app\models\Semantics), 1, 0)
+#8 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(476): yii\grid\GridView->renderTableRow(Object(app\models\Semantics), 1, 0)
+#9 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(347): yii\grid\GridView->renderTableBody()
+#10 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php(155): yii\grid\GridView->renderItems()
+#11 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(316): yii\widgets\BaseListView->renderSection('{items}')
+#12 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php(130): yii\grid\GridView->renderSection('{items}')
+#13 [internal function]: yii\widgets\BaseListView->yii\widgets\{closure}(Array)
+#14 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php(133): preg_replace_callback('/{\w+}/', Object(Closure), '{summary}?{item...')
+#15 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(291): yii\widgets\BaseListView->run()
+#16 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Widget.php(139): yii\grid\GridView->run()
+#17 /var/www/html/gitAJour/Recombinator2/views/semantics/index.php(36): yii\base\Widget::widget(Array)
+#18 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(328): require('/var/www/html/g...')
+#19 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#20 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(152): yii\base\View->renderFile('/var/www/html/g...', Array, Object(app\controllers\SemanticsController))
+#21 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Controller.php(381): yii\base\View->render('index', Array, Object(app\controllers\SemanticsController))
+#22 /var/www/html/gitAJour/Recombinator2/controllers/SemanticsController.php(44): yii\base\Controller->render('index', Array)
+#23 [internal function]: app\controllers\SemanticsController->actionIndex()
+#24 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#25 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#26 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('', Array)
+#27 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('semantics', Array)
+#28 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#29 /var/www/html/gitAJour/Recombinator2/web/index.php(12): yii\base\Application->run()
+#30 {main}
+$_SERVER = [
+    'HTTP_HOST' => 'localhost',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_COOKIE' => 'fonction=a%2Bb; dnf=01001111; PHPSESSID=jigf7j4av6pc9c315nk5empt87; _csrf=ad112467eec55f2f1533e64e9ce4d0b54270cd9f2f8c1bc7988de9a1a9611e04a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22anF6iRh7Gjbll3D4mjsFiXXdOe3aieso%22%3B%7D',
+    'HTTP_DNT' => '1',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+',
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)',
+    'SERVER_NAME' => 'localhost',
+    'SERVER_ADDR' => '127.0.0.1',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '127.0.0.1',
+    'DOCUMENT_ROOT' => '/var/www/html',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html',
+    'SERVER_ADMIN' => 'webmaster@localhost',
+    'SCRIPT_FILENAME' => '/var/www/html/gitAJour/Recombinator2/web/index.php',
+    'REMOTE_PORT' => '34514',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => 'r=semantics',
+    'REQUEST_URI' => '/gitAJour/Recombinator2/web/index.php?r=semantics',
+    'SCRIPT_NAME' => '/gitAJour/Recombinator2/web/index.php',
+    'PHP_SELF' => '/gitAJour/Recombinator2/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1527333386.063,
+    'REQUEST_TIME' => 1527333386,
+]
+[26-May-2018 11:18:52 UTC] An Error occurred while handling another error:
+exception 'ReflectionException' with message 'Method yii\widgets\BaseListView::yii\widgets\{closure}() does not exist' in /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php:199
+Stack trace:
+#0 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(199): ReflectionMethod->__construct('yii\widgets\Bas...', 'yii\widgets\{cl...')
+#1 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->addTypeLinks('yii\widgets\Bas...')
+#2 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(249): require('/var/www/html/g...')
+#3 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(308): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#4 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem(NULL, NULL, 'yii\widgets\Bas...', 'yii\widgets\{cl...', Array, 15)
+#5 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(249): require('/var/www/html/g...')
+#6 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/ErrorHandler.php(114): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#7 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#8 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#9 {main}
+Previous exception:
+exception 'yii\base\ErrorException' with message 'htmlspecialchars() expects parameter 1 to be string, resource given' in /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/helpers/BaseHtml.php:104
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'htmlspecialchar...', '/var/www/html/g...', 104, Array)
+#1 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/helpers/BaseHtml.php(104): htmlspecialchars(Resource id #2, 11, 'UTF-8', true)
+#2 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/i18n/Formatter.php(351): yii\helpers\BaseHtml::encode(Resource id #2)
+#3 [internal function]: yii\i18n\Formatter->asText(Resource id #2)
+#4 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/i18n/Formatter.php(316): call_user_func_array(Array, Array)
+#5 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/DataColumn.php(227): yii\i18n\Formatter->format(Resource id #2, 'text')
+#6 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/Column.php(110): yii\grid\DataColumn->renderDataCellContent(Object(app\models\Semantics), 1, 0)
+#7 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(507): yii\grid\Column->renderDataCell(Object(app\models\Semantics), 1, 0)
+#8 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(476): yii\grid\GridView->renderTableRow(Object(app\models\Semantics), 1, 0)
+#9 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(347): yii\grid\GridView->renderTableBody()
+#10 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php(155): yii\grid\GridView->renderItems()
+#11 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(316): yii\widgets\BaseListView->renderSection('{items}')
+#12 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php(130): yii\grid\GridView->renderSection('{items}')
+#13 [internal function]: yii\widgets\BaseListView->yii\widgets\{closure}(Array)
+#14 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php(133): preg_replace_callback('/{\w+}/', Object(Closure), '{summary}?{item...')
+#15 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/grid/GridView.php(291): yii\widgets\BaseListView->run()
+#16 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Widget.php(139): yii\grid\GridView->run()
+#17 /var/www/html/gitAJour/Recombinator2/views/semantics/index.php(36): yii\base\Widget::widget(Array)
+#18 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(328): require('/var/www/html/g...')
+#19 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#20 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/View.php(152): yii\base\View->renderFile('/var/www/html/g...', Array, Object(app\controllers\SemanticsController))
+#21 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Controller.php(381): yii\base\View->render('index', Array, Object(app\controllers\SemanticsController))
+#22 /var/www/html/gitAJour/Recombinator2/controllers/SemanticsController.php(44): yii\base\Controller->render('index', Array)
+#23 [internal function]: app\controllers\SemanticsController->actionIndex()
+#24 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#25 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#26 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('', Array)
+#27 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('semantics', Array)
+#28 /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#29 /var/www/html/gitAJour/Recombinator2/web/index.php(12): yii\base\Application->run()
+#30 {main}
+$_SERVER = [
+    'HTTP_HOST' => 'localhost',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_COOKIE' => 'fonction=a%2Bb; dnf=01001111; PHPSESSID=jigf7j4av6pc9c315nk5empt87; _csrf=ad112467eec55f2f1533e64e9ce4d0b54270cd9f2f8c1bc7988de9a1a9611e04a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22anF6iRh7Gjbll3D4mjsFiXXdOe3aieso%22%3B%7D',
+    'HTTP_DNT' => '1',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+',
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)',
+    'SERVER_NAME' => 'localhost',
+    'SERVER_ADDR' => '127.0.0.1',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '127.0.0.1',
+    'DOCUMENT_ROOT' => '/var/www/html',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html',
+    'SERVER_ADMIN' => 'webmaster@localhost',
+    'SCRIPT_FILENAME' => '/var/www/html/gitAJour/Recombinator2/web/index.php',
+    'REMOTE_PORT' => '34592',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => 'r=semantics',
+    'REQUEST_URI' => '/gitAJour/Recombinator2/web/index.php?r=semantics',
+    'SCRIPT_NAME' => '/gitAJour/Recombinator2/web/index.php',
+    'PHP_SELF' => '/gitAJour/Recombinator2/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1527333532.263,
+    'REQUEST_TIME' => 1527333532,
+]
+[26-May-2018 11:20:08 UTC] PHP Fatal error:  Call to undefined function gets() in /var/www/html/gitAJour/Recombinator2/views/semantics/index.php on line 28

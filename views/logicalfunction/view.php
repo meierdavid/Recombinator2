@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id_logical_function',
             'nb_inputs',
-            'ndf',
+            'dnf',
             'id_permutation_class',
         ],
     ]) ?>

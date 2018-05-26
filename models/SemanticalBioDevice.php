@@ -7,15 +7,15 @@ use Yii;
 /**
  * This is the model class for table "semantical_bio_device".
  *
- * @property integer $permutations_class
+ * @property integer $permutation_class
  * @property boolean $weak_constraint
  * @property boolean $strong_constraint
- * @property integer $id_dick_functionnal_structure
+ * @property integer $id_dyck_functionnal_structure
  * @property integer $id_semantics
  *
  * @property Comment[] $comments
  * @property DyckFunctionnalStructure $idDickFunctionnalStructure
- * @property PermutationsClass $permutationsClass
+ * @property PermutationClass $permutationClass
  * @property Semantics $idSemantics
  */
 class SemanticalBioDevice extends \yii\db\ActiveRecord
@@ -34,11 +34,11 @@ class SemanticalBioDevice extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['permutations_class'], 'required'],
-            [['permutations_class'], 'integer'],
+            [['permutation_class'], 'required'],
+            [['permutation_class'], 'integer'],
             [['weak_constraint', 'strong_constraint'], 'boolean'],
-            [['id_dick_functionnal_structure'], 'exist', 'skipOnError' => true, 'targetClass' => DyckFunctionnalStructure::className(), 'targetAttribute' => ['id_dick_functionnal_structure' => 'id_dick_functionnal_structure']],
-            [['permutations_class'], 'exist', 'skipOnError' => true, 'targetClass' => PermutationsClass::className(), 'targetAttribute' => ['permutations_class' => 'permutation_class']],
+            [['id_dyck_functionnal_structure'], 'exist', 'skipOnError' => true, 'targetClass' => DyckFunctionnalStructure::className(), 'targetAttribute' => ['id_dyck_functionnal_structure' => 'id_dyck_functionnal_structure']],
+            [['permutation_class'], 'exist', 'skipOnError' => true, 'targetClass' => PermutationClass::className(), 'targetAttribute' => ['permutation_class' => 'permutation_class']],
             [['id_semantics'], 'exist', 'skipOnError' => true, 'targetClass' => Semantics::className(), 'targetAttribute' => ['id_semantics' => 'id_semantics']],
         ];
     }
@@ -49,10 +49,10 @@ class SemanticalBioDevice extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'permutations_class' => Yii::t('app', 'Permutations Class'),
+            'permutation_class' => Yii::t('app', 'Permutation Class'),
             'weak_constraint' => Yii::t('app', 'Weak Constraint'),
             'strong_constraint' => Yii::t('app', 'Strong Constraint'),
-            'id_dick_functionnal_structure' => Yii::t('app', 'Id Dick Functionnal Structure'),
+            'id_dyck_functionnal_structure' => Yii::t('app', 'Id Dick Functionnal Structure'),
             'id_semantics' => Yii::t('app', 'Id Semantics'),
         ];
     }
@@ -62,7 +62,7 @@ class SemanticalBioDevice extends \yii\db\ActiveRecord
      */
     public function getComments()
     {
-        return $this->hasMany(Comment::className(), ['id_dick_functionnal_structure' => 'id_dick_functionnal_structure', 'id_semantics' => 'id_semantics']);
+        return $this->hasMany(Comment::className(), ['id_dyck_functionnal_structure' => 'id_dyck_functionnal_structure', 'id_semantics' => 'id_semantics']);
     }
 
     /**
@@ -70,15 +70,15 @@ class SemanticalBioDevice extends \yii\db\ActiveRecord
      */
     public function getIdDickFunctionnalStructure()
     {
-        return $this->hasOne(DyckFunctionnalStructure::className(), ['id_dick_functionnal_structure' => 'id_dick_functionnal_structure']);
+        return $this->hasOne(DyckFunctionnalStructure::className(), ['id_dyck_functionnal_structure' => 'id_dyck_functionnal_structure']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPermutationsClass()
+    public function getPermutationClass()
     {
-        return $this->hasOne(PermutationsClass::className(), ['permutation_class' => 'permutations_class']);
+        return $this->hasOne(PermutationClass::className(), ['permutation_class' => 'permutation_class']);
     }
 
     /**

@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id_semantics',
-            'semantics',
+            //'semantics',
             'length',
             'nb_genes',
             'nb_parts',

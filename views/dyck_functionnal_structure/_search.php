@@ -15,9 +15,9 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id_dick_functionnal_structure') ?>
+    <?= $form->field($model, 'id_dyck_functionnal_structure') ?>
 
-    <?= $form->field($model, 'dick_functionnal_structure') ?>
+    <?= $form->field($model, 'dyck_functionnal_structure') ?>
 
     <?= $form->field($model, 'nb_excisions') ?>
 

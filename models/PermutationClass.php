@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "permutations_class".
+ * This is the model class for table "permutation_class".
  *
  * @property integer $permutation_class
  * @property integer $nb_inputs
@@ -13,14 +13,14 @@ use Yii;
  * @property Functions[] $functions
  * @property Sequence[] $sequences
  */
-class PermutationsClass extends \yii\db\ActiveRecord
+class PermutationClass extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'permutations_class';
+        return 'permutation_class';
     }
 
     /**
@@ -50,7 +50,7 @@ class PermutationsClass extends \yii\db\ActiveRecord
      */
     public function getFunctions()
     {
-        return $this->hasMany(Functions::className(), ['permutations_class' => 'permutation_class']);
+        return $this->hasMany(Functions::className(), ['permutation_class' => 'permutation_class']);
     }
 
     /**
@@ -58,6 +58,6 @@ class PermutationsClass extends \yii\db\ActiveRecord
      */
     public function getSequences()
     {
-        return $this->hasMany(Sequence::className(), ['permutations_class' => 'permutation_class']);
+        return $this->hasMany(Sequence::className(), ['permutation_class' => 'permutation_class']);
     }
 }

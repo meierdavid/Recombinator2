@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\PermutationsClass;
-use app\models\PermutationsClassSearch;
+use app\models\PermutationClass;
+use app\models\PermutationClassSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PermutationsClassController implements the CRUD actions for PermutationsClass model.
+ * PermutationClassController implements the CRUD actions for PermutationClass model.
  */
-class PermutationsClassController extends Controller
+class PermutationClassController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class PermutationsClassController extends Controller
     }
 
     /**
-     * Lists all PermutationsClass models.
+     * Lists all PermutationClass models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PermutationsClassSearch();
+        $searchModel = new PermutationClassSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class PermutationsClassController extends Controller
     }
 
     /**
-     * Displays a single PermutationsClass model.
+     * Displays a single PermutationClass model.
      * @param integer $id
      * @return mixed
      */
@@ -57,13 +57,13 @@ class PermutationsClassController extends Controller
     }
 
     /**
-     * Creates a new PermutationsClass model.
+     * Creates a new PermutationClass model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new PermutationsClass();
+        $model = new PermutationClass();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->permutation_class]);
@@ -75,7 +75,7 @@ class PermutationsClassController extends Controller
     }
 
     /**
-     * Updates an existing PermutationsClass model.
+     * Updates an existing PermutationClass model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -94,7 +94,7 @@ class PermutationsClassController extends Controller
     }
 
     /**
-     * Deletes an existing PermutationsClass model.
+     * Deletes an existing PermutationClass model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class PermutationsClassController extends Controller
     }
 
     /**
-     * Finds the PermutationsClass model based on its primary key value.
+     * Finds the PermutationClass model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return PermutationsClass the loaded model
+     * @return PermutationClass the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = PermutationsClass::findOne($id)) !== null) {
+        if (($model = PermutationClass::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

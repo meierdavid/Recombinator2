@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\PermutationsClass */
+/* @var $model app\models\PermutationClass */
 
-$this->title = 'Create Permutations Class';
-$this->params['breadcrumbs'][] = ['label' => 'Permutations Classes', 'url' => ['index']];
+$this->title = 'Create Permutation Class';
+$this->params['breadcrumbs'][] = ['label' => 'Permutation Classes', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="permutations-class-create">
+<div class="permutation-class-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

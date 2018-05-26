@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nb_inputs')->textInput() ?>
 
-    <?= $form->field($model, 'ndf')->textInput() ?>
+    <?= $form->field($model, 'dnf')->textInput() ?>
 
     <?= $form->field($model, 'id_permutation_class')->textInput() ?>
 

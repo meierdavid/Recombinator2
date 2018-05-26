@@ -66,7 +66,7 @@ class DyckFunctionnalStructureController extends Controller
         $model = new DyckFunctionnalStructure();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_dick_functionnal_structure]);
+            return $this->redirect(['view', 'id' => $model->id_dyck_functionnal_structure]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -85,7 +85,7 @@ class DyckFunctionnalStructureController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_dick_functionnal_structure]);
+            return $this->redirect(['view', 'id' => $model->id_dyck_functionnal_structure]);
         } else {
             return $this->render('update', [
                 'model' => $model,

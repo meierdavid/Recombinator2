@@ -4,20 +4,24 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\BooleanfunctionSearch */
+/* @var $model app\models\DyckFunctionnalStructureSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="booleanfunction-search">
+<div class="dyck-functionnal-structure-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'ndf') ?>
+    <?= $form->field($model, 'id_dyck_functionnal_structure') ?>
 
-    <?= $form->field($model, 'permutations_class') ?>
+    <?= $form->field($model, 'dyck_functionnal_structure') ?>
+
+    <?= $form->field($model, 'nb_excisions') ?>
+
+    <?= $form->field($model, 'nb_inversions') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

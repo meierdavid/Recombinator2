@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\PermutationsClassSearch */
+/* @var $model app\models\PermutationClassSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="permutations-class-search">
+<div class="permutation-class-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],

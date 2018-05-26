@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_comment',
             'content',
             'id_user',
-            'id_dick_functionnal_structure',
+            'id_dyck_functionnal_structure',
             'id_semantics',
         ],
     ]) ?>

@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\PermutationsClass */
+/* @var $model app\models\PermutationClass */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="permutations-class-form">
+<div class="permutation-class-form">
 
     <?php $form = ActiveForm::begin(); ?>
 

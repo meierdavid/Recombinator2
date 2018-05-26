@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id_user')->textInput() ?>
 
-    <?= $form->field($model, 'id_dick_functionnal_structure')->textInput() ?>
+    <?= $form->field($model, 'id_dyck_functionnal_structure')->textInput() ?>
 
     <?= $form->field($model, 'id_semantics')->textInput() ?>
 

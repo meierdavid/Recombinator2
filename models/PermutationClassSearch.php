@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\PermutationsClass;
+use app\models\PermutationClass;
 
 /**
- * PermutationsClassSearch represents the model behind the search form about `app\models\PermutationsClass`.
+ * PermutationClassSearch represents the model behind the search form about `app\models\PermutationClass`.
  */
-class PermutationsClassSearch extends PermutationsClass
+class PermutationClassSearch extends PermutationClass
 {
     /**
      * @inheritdoc
@@ -40,7 +40,7 @@ class PermutationsClassSearch extends PermutationsClass
      */
     public function search($params)
     {
-        $query = PermutationsClass::find();
+        $query = PermutationClass::find();
 
         // add conditions that should always apply here
 

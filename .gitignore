@@ -12,7 +12,7 @@ nbproject
 # windows thumbnail cache
 Thumbs.db
 
-
+config/db.php
 
 # composer itself is not needed
 composer.phar

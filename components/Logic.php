@@ -45,7 +45,7 @@
 		
 	public function hydrate(array $donnees)
 	{
-            $ndf; $nbInputs;
+            $dnf; $nbInputs;
 	    foreach ($donnees as $key => $value)
 	    {
 		switch ($key)
@@ -57,8 +57,8 @@
 		    case "nb_inputs":
                         $nbInputs = $value;
 		    break;
-		    case "ndf":
-                        $ndf = $value;
+		    case "dnf":
+                        $dnf = $value;
 		    break;
 		    
 		    case "nbWords":
@@ -69,11 +69,11 @@
 	    $inputNames = [];
             for ($character = 97; $character < 97 + $nbInputs; $character++)
                 $inputNames[] = chr($character);
-	    $mdf = Veritas::mcCluskey($ndf, $nbInputs, $inputNames);
+	    $mdf = Veritas::mcCluskey($dnf, $nbInputs, $inputNames);
 	    $this->loadInfix($mdf);
 	    $this->setMinimalLogic($mdf);
 	    $veritas = new VeritasLogic($this);
-	    $this->setOutput(substr(str_pad(decbin($ndf), pow(2,$nbInputs), "0", STR_PAD_LEFT), -1 * pow(2,$nbInputs)));
+	    $this->setOutput(substr(str_pad(decbin($dnf), pow(2,$nbInputs), "0", STR_PAD_LEFT), -1 * pow(2,$nbInputs)));
 	}
 	
 	public function isWellBracketted ($infix)

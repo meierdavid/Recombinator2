@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\DyckFunctionnalStructureSearch */
+/* @var $searchModel app\models\BooleanfunctionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Dyck Functionnal Structures';
+$this->title = 'Booleanfunctions';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="dyck-functionnal-structure-index">
+<div class="booleanfunction-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Dyck Functionnal Structure', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Booleanfunction', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,10 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id_dick_functionnal_structure',
-            'dick_functionnal_structure',
-            'nb_excisions',
-            'nb_inversions',
+            'dnf',
+            'permutation_class',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -66,7 +66,7 @@ class BooleanFunctionController extends Controller
         $model = new Booleanfunction();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ndf]);
+            return $this->redirect(['view', 'id' => $model->dnf]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -85,7 +85,7 @@ class BooleanFunctionController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ndf]);
+            return $this->redirect(['view', 'id' => $model->dnf]);
         } else {
             return $this->render('update', [
                 'model' => $model,

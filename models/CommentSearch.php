@@ -18,7 +18,7 @@ class CommentSearch extends Comment
     public function rules()
     {
         return [
-            [['id_comment', 'content', 'id_user', 'id_dick_functionnal_structure', 'id_semantics'], 'integer'],
+            [['id_comment', 'content', 'id_user', 'id_dyck_functionnal_structure', 'id_semantics'], 'integer'],
         ];
     }
 
@@ -61,7 +61,7 @@ class CommentSearch extends Comment
             'id_comment' => $this->id_comment,
             'content' => $this->content,
             'id_user' => $this->id_user,
-            'id_dick_functionnal_structure' => $this->id_dick_functionnal_structure,
+            'id_dyck_functionnal_structure' => $this->id_dyck_functionnal_structure,
             'id_semantics' => $this->id_semantics,
         ]);
 

@@ -67,6 +67,6 @@ class Semantics extends \yii\db\ActiveRecord
      */
     public function getIdDickFunctionnalStructures()
     {
-        return $this->hasMany(DyckFunctionnalStructure::className(), ['id_dick_functionnal_structure' => 'id_dick_functionnal_structure'])->viaTable('sequence', ['id_semantics' => 'id_semantics']);
+        return $this->hasMany(DyckFunctionnalStructure::className(), ['id_dyck_functionnal_structure' => 'id_dyck_functionnal_structure'])->viaTable('sequence', ['id_semantics' => 'id_semantics']);
     }
 }

@@ -24,8 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id_dick_functionnal_structure',
-            'dick_functionnal_structure',
+            'id_dyck_functionnal_structure',
+            'dyck_functionnal_structure',
             'nb_excisions',
             'nb_inversions',
 

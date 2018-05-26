@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id_logical_function',
             'nb_inputs',
-            'ndf',
+            'dnf',
             'id_permutation_class',
 
             ['class' => 'yii\grid\ActionColumn'],

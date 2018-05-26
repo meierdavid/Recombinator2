@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\SemanticalBioDeviceSearch */
+/* @var $searchModel app\models\DyckFunctionnalStructureSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Semantical Bio Devices';
+$this->title = 'Dyck Functionnal Structures';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="semantical-bio-device-index">
+<div class="dyck-functionnal-structure-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Semantical Bio Device', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Dyck Functionnal Structure', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,11 +24,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'permutations_class',
-            'weak_constraint:boolean',
-            'strong_constraint:boolean',
-            'id_dick_functionnal_structure',
-            'id_semantics',
+            'id_dyck_functionnal_structure',
+            'dyck_functionnal_structure',
+            'nb_excisions',
+            'nb_inversions',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
