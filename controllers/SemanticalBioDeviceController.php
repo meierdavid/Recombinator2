@@ -18,6 +18,7 @@ use app\components\VeritasSemanticalBioDevice;
 use app\components\SemanticalBioDevice as SemanticalBiologicalDevice;
 use yii\db\Query;
 use yii\data\Pagination;
+use yii\data\Sort;
 
 /**
  * SemanticalBioDeviceController implements the CRUD actions for SemanticalBioDevice model.
@@ -225,190 +226,151 @@ class SemanticalBioDeviceController extends Controller
         }
     }
     
-    public function actionSearch_sbd_treatment() {
-        
-        $searchModel = new SemanticalBioDeviceSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        
-        
-        $functionArray;
-       // if(isset($_POST['form'])){
-        if ($_POST['form'] == 'wellFormedFormula') {
-            $functionArray[0] = $_POST['Sequence']['proposition'];
-        }
-        if ($_POST['form'] == 'BinaryNumber') {
-            $functionArray[0] = $_POST['Sequence']['BinaryNumber'];
-        }
-        if ($_POST['form'] == 'MultipleFunction') {
-            $functionArray = explode("\n", $_POST['Sequence']['MultipleFunction']);
-        }
-        foreach ($functionArray as $key => $value) {
-            if ($value == "") {
-                throw new \Exception("Function can't be empty");
-            }
-        }
-        $dnfArray = [];
-        foreach ($functionArray as $key => $value) {
-            try 
-            {
-                $fonction = $value;
-                $booleanFunction;
-                $nbVariables;
-                try 
-                {
-                    $booleanFunction = new BooleanFunction($fonction);
-                } 
-                catch (\Exception $e) 
-                {
-                    $nbVariables = log(strlen($value),2);
-                    if (intval($nbVariables) != $nbVariables) 
-					{
-                        throw new \exception('There should be 2^n figures with n integer');
-                    }
-                    $fonction = (string) new MinimalDisjunctiveForm($value, $nbVariables);
-
-                    if ($fonction == "0") 
-					{
-                        $fonction = "a.!a";
-                    }
-                    if ($fonction == "1") 
-					{
-                        $fonction = "a+!a";
-                    }
-                    $booleanFunction = new BooleanFunction($fonction); 
-                }
-                $veritas = new VeritasBooleanFunction($booleanFunction);
-                $dnfArray[]= $veritas->getMinimalOutput();
-                //supprime les doublons
-                $dnfArray=array_unique($dnfArray);
-                
-               
-                //TEST QUERY
-                /*$query = (new Query())->select(['*'])->from('boolean_function')->join("INNER JOIN", "permutation_class","boolean_function.permutation_class = permutation_class.permutation_class")
-                        ->join("INNER JOIN", "semantical_bio_device","semantical_bio_device.permutation_class = permutation_class.permutation_class")
-                        ->join("INNER JOIN", "semantics","semantics.id_semantics = semantical_bio_device.id_semantics")
-                        ->join("INNER JOIN", "dyck_functionnal_structure","semantical_bio_device.id_dyck_functionnal_structure = dyck_functionnal_structure.id_dyck_functionnal_structure")
-                        ->where(['dnf' => $dnfArray[0]])->one();
-                */
-        
-            /*    $count=Yii::$app->db->createCommand('SELECT COUNT(*)FROM boolean_function INNER JOIN permutation_class ON (boolean_function.permutation_class = permutation_class.permutation_class) 
-                INNER JOIN semantical_bio_device ON (permutation_class.permutation_class = semantical_bio_device.permutation_class) 
-                INNER JOIN semantics ON (semantical_bio_device.id_semantics = semantics.id_semantics) 
-                INNER JOIN dyck_functionnal_structure ON (semantical_bio_device.id_dyck_functionnal_structure = dyck_functionnal_structure.id_dyck_functionnal_structure) 
-                WHERE dnf=:dnfvalue ',[':dnfvalue' => $dnfArray[0]])->queryScalar();
-                var_dump($count);
-                
-                $dataProvider = new SqlDataProvider([
-                'sql' => 'SELECT * ' . 
-                'FROM boolean_function ' .
-                'INNER JOIN permutation_class ON (boolean_function.permutation_class = permutation_class.permutation_class) ' .
-                'INNER JOIN semantical_bio_device ON (permutation_class.permutation_class = semantical_bio_device.permutation_class) ' .
-                'INNER JOIN semantics ON (semantical_bio_device.id_semantics = semantics.id_semantics) ' .
-                'INNER JOIN dyck_functionnal_structure ON (semantical_bio_device.id_dyck_functionnal_structure = dyck_functionnal_structure.id_dyck_functionnal_structure) ' .
-                'WHERE dnf=:dnfvalue ' ,
-                'params' => [':dnfvalue' => $dnfArray[0]],
-]);
-                                $dataProvider->setTotalCount($count);
-                                
-				$dataProvider->setPagination([
-					'pageSize' => 2,
-				]);
-				foreach ($dataProvider->getModels() as $m)
+    public function actionSearch_sbd_treatment($form = null, $data = null) 
+    {
+		$searchModel = new SemanticalBioDeviceSearch();
+		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+		$functionArray;
+		
+		if ($form == null)
+		{
+			if ($_POST['form'] == 'wellFormedFormula') 
+			{
+				$functionArray[0] = $_POST['Sequence']['proposition'];
+			}
+			if ($_POST['form'] == 'BinaryNumber') 
+			{
+				$functionArray[0] = $_POST['Sequence']['BinaryNumber'];
+			}
+			if ($_POST['form'] == 'MultipleFunction') 
+			{
+				$functionArray = explode("\n", $_POST['Sequence']['MultipleFunction']);
+			}
+			$data = implode(',', $functionArray);
+			$form = $_POST['form'];
+		}
+		else 
+		{
+			$functionArray = explode(',', $data);
+		}
+		foreach ($functionArray as $key => $value) 
+		{
+			if ($value == "") 
+			{
+				throw new \Exception("Function can't be empty");
+			}
+		}
+		$dnfArray = [];
+		foreach ($functionArray as $key => $value) 
+		{
+			try 
+			{
+				$value = trim($value);
+				$fonction = $value;
+				$booleanFunction;
+				$nbVariables;
+				try 
 				{
-					$sbd = new SemanticalBiologicalDevice();
-					$sbd->hydrate($m);
-					$newModels[] = $sbd->getModel();
-				}
-				
-				$dataProvider->setModels($newModels);*/
-                                
-                
-				$query = new Query;
-				// compose the query
-				$query
-					->from('boolean_function')
-					->innerjoin('permutation_class', "boolean_function.permutation_class = permutation_class.permutation_class")
-					->innerjoin('semantical_bio_device', "permutation_class.permutation_class = semantical_bio_device.permutation_class")
-					->innerjoin('semantics', "semantical_bio_device.id_semantics = semantics.id_semantics")
-					->innerjoin('dyck_functionnal_structure', "semantical_bio_device.id_dyck_functionnal_structure = dyck_functionnal_structure.id_dyck_functionnal_structure")
-					;
-				
-				foreach ($dnfArray as $dnf)
+					$booleanFunction = new BooleanFunction($fonction);
+				} 
+				catch (\Exception $e) 
 				{
-					$query->orwhere(["dnf" => $dnf]);
-				}
+					$nbVariables = log(strlen($value),2);
+					print_r(str_split($value));
+					if (intval($nbVariables) != $nbVariables) 
+					{
+						throw new \exception('There should be 2^n figures with n integer');
+					}
+					$fonction = (string) new MinimalDisjunctiveForm($value, $nbVariables);
 					
-				$pages = new Pagination(['totalCount' => $query->count()]);
-				$provider = new ActiveDataProvider([
-					'query' => $query,
-					'pagination' => $pages,
-					'sort' => [
-						'defaultOrder' => [
-							'length' => SORT_ASC,
-							'weak_constraint' => SORT_DESC, 
-						],
-						'attributes' => [
-							'weak_constraint',
-							'strong_constraint',
-							'length',
-							'nb_inputs',
-							'gene_at_ends',
-							'nb_parts',
-							'nb_genes'
-						],
-				],]);
-				
-				$newModels = [];  
-				foreach ($provider->getModels() as $m)
-				{
-					$sbd = new SemanticalBiologicalDevice();
-					$sbd->hydrate($m);
-					$newModels[] = $sbd->getModel();
+					if ($fonction == "0") 
+					{
+						$fonction = "a.!a";
+					}
+					if ($fonction == "1") 
+					{
+						$fonction = "a+!a";
+					}
+					$booleanFunction = new BooleanFunction($fonction); 
 				}
-				$provider->setModels($newModels);
-               
-                /*$pagination = new Pagination(30, $semanticalBioDevicesManager->getNombre($booleanFunctionManager->getBooleanFunction(
-                  ['dnf',bindec($veritas->getMinimalOutput ()),DB::SQL_AND,'nb_inputs',$veritas->getMinimalNbInputs()])->getId_fn()),
-                  'listSeq.php?output='.$veritas->getMinimalOutput ()."&amp;nbInputs=".$veritas->getMinimalNbInputs());
-                  if (isset($_GET['page'])) $pagination->setPageActuelle($_GET['page']);
-                  $pagination->setPremier(false); */
-
-                //Requête SQL pour récuperer la liste des séquences
-                
-                //$liste = $semanticalBioDevicesManager->getListe($pagination, ['dnf', bindec($veritas->getMinimalOutput()), DB::SQL_AND, 'nb_inputs', $veritas->getMinimalNbInputs()], array(['champ' => 'weak_constraint', 'sens' => DB::ORDRE_DESC], ['champ' => 'length', 'sens' => DB::ORDRE_ASC]));
-
-                /* $tpl->assign(array(
-                  'listeSequence' => $liste,
-                  'pages' => $pagination->getPages()));
-
-                  $tpl->display('listSeq.html'); */
-                                
-                return $this->render('result2', [
-                            'searchModel' => $searchModel,
-                            'data' => $provider,
-                            'booleanFunction' => $booleanFunction,
-                            'veritas' => $veritas,
-							'pages'=>$pages
-                            
-                ]);
-            } catch (\Exception $e) {
-                return $this->render('erreur', [
-                            'searchModel' => $searchModel,
-                            'dataProvider' => $provider,
-                            'erreur' => $e->getMessage(),
-                ]);
-            }
-      //  }
-        }
-        //SI on change de page avec la pagination
-        /*else{
-            
-        
-            return $this->render('result2', [
-                            'data' => $dataProvider, 
-                ]);
-        }*/
-    }
+				$veritas = new VeritasBooleanFunction($booleanFunction);
+				$dnfArray[]= $veritas->getMinimalOutput();
+			} 
+			catch (\Exception $e) 
+			{
+				return $this->render('erreur', [
+					'erreur' => $e->getMessage(),
+				]);
+			}
+		}
+		//supprime les doublons
+		$dnfArray=array_unique($dnfArray);
+		
+		// Partie critères de sélection
+		$criteres = [];
+		
+		// Fin partie criteres
+		
+		$query = new Query;
+		// compose the query
+		$query
+		->from('boolean_function')
+		->innerjoin('permutation_class', "boolean_function.permutation_class = permutation_class.permutation_class")
+		->innerjoin('semantical_bio_device', "permutation_class.permutation_class = semantical_bio_device.permutation_class")
+		->innerjoin('semantics', "semantical_bio_device.id_semantics = semantics.id_semantics")
+		->innerjoin('dyck_functionnal_structure', "semantical_bio_device.id_dyck_functionnal_structure = dyck_functionnal_structure.id_dyck_functionnal_structure")
+		;
+		
+		foreach ($dnfArray as $dnf)
+		{
+			$query->orwhere(["dnf" => $dnf]);
+		}
+		
+		$pages = new Pagination([
+			'totalCount' => $query->count(),
+			'params' => array_merge($_GET, ['form' => $form, 'data' => $data])]);
+		
+		$sort = new Sort([
+			'enableMultiSort' => true,
+			'defaultOrder' => [
+				'weak_constraint' => SORT_DESC, 
+				'length' => SORT_ASC,
+			],
+			'attributes' => [
+				'weak_constraint',
+				'strong_constraint',
+				'length',
+				'nb_inputs',
+				'gene_at_ends',
+				'nb_parts',
+				'nb_genes',
+				'dnf'],
+			'params' => array_merge($_GET, ['form' => $form, 'data' => $data])
+		]);
+		
+		$provider = new ActiveDataProvider([
+			'query' => $query,
+			'pagination' => $pages,
+			'sort' => $sort
+		]);
+		
+		$newModels = [];  
+		foreach ($provider->getModels() as $m)
+		{
+			$sbd = new SemanticalBiologicalDevice();
+			$sbd->hydrate($m);
+			$newModels[] = $sbd->getModel();
+		}
+		$provider->setModels($newModels);
+		
+		return $this->render('result2', [
+			'searchModel' => $searchModel,
+			'data' => $provider,
+			'booleanFunction' => $booleanFunction,
+			'veritas' => $veritas,
+			'pages'=>$pages
+		]);
+	}
 
     public function actionInter_sbd_res() {
         if (isset($_GET['sequence'])) {

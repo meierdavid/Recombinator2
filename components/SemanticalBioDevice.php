@@ -2,7 +2,7 @@
 namespace app\components; 
 use Yii;
 use yii\base\Component;
-use yii\base\InvalidConfigException;
+use yii\base\InvalidConfig\Exception;
 
 class SemanticalBioDevice 
 {
@@ -183,7 +183,7 @@ class SemanticalBioDevice
 	{
 		$this->_inputs = $this->_baseInputs;
 		if (strlen($colours) != count($this->_inputs))
-			throw new Exception(t("The number of colours doesn't equal to number of inputs"));
+			throw new \Exception("The number of colours doesn't equal to number of inputs");
 		
 		$inputs = [];
 		
@@ -239,7 +239,7 @@ class SemanticalBioDevice
 				if (preg_match("/^(SF|SR|\[|\]|\(|\))(\w)/", $part, $matches) === 1)
 					$this->addSite($matches[1], strtolower($matches[2]));
 				else
-					throw new Exception(t('Parte invalide : ').$part.'.');
+					throw new \Exception('Parte invalide : '.$part.'.');
 		}
 	}
 	
@@ -277,17 +277,17 @@ class SemanticalBioDevice
 				break;
 				
 			default: 
-				throw new Exception('Ce n\'est pas un site.');
+				throw new \Exception('Ce n\'est pas un site.');
 		}
 		if (key_exists($input, $this->_inputs) && count($this->_inputs[$input]) == 1)
 			$this->_inputs[$input][1] = count($this->_parts)-1;
 		else if (!key_exists($input, $this->_inputs))
 			$this->_inputs[$input][0] = count($this->_parts)-1;
 		else
-			throw new Exception('Les sites doivent être par paire.');
+			throw new \Exception('Les sites doivent être par paire.');
 		
 		if (count($this->_inputs) > 6)
-			throw new Exception('Le nombre maximum d\'inputs est limité à 6.');
+			throw new \Exception('Le nombre maximum d\'inputs est limité à 6.');
 		$this->_baseInputs = $this->_inputs;
 	}
 	
@@ -304,7 +304,7 @@ class SemanticalBioDevice
 			}
 			
 			if (!$found)
-				throw new Exception("There has been an attempt to access an unknown site.");
+				throw new \Exception("There has been an attempt to access an unknown site.");
 			
 			return $name;
 	}
@@ -915,7 +915,7 @@ class SemanticalBioDevice
 	public function exceptionsIfInvalid ()
 	{
 		if (!$this->hasEnoughSites())
-			throw new \exception (t("Sites must be in pairs."));
+			throw new \exception ("Sites must be in pairs.");
 	}
 	
 	public function inputNamesList() 
@@ -1084,7 +1084,7 @@ class SemanticalBioDevice
 		}
 		else 
 		{
-			throw new Exception("This BioDevice can't implemente this boolean function");
+			throw new \Exception("This BioDevice can't implemente this boolean function");
 		}
 	}
 	
@@ -1159,7 +1159,7 @@ class SemanticalBioDevice
 		"dyck_functionnal_structure" => $this->_dyck_functionnal_structure,
 		"nb_excisions" => $this->_nb_excisions,
 		"nb_inversions" => $this->_nb_inversions,
-		"graphic_format" => $this->toHTML()
+		"architecture" => $this->toHTML()
 		];
 		
 		return $a;
