@@ -3,6 +3,9 @@
 namespace app\controllers;
 
 use Yii;
+use yii\data\ActiveDataProvider;
+use yii\data\ArrayDataProvider;
+use yii\data\SqlDataProvider;
 use app\models\SemanticalBioDevice;
 use app\models\SemanticalBioDeviceSearch;
 use yii\web\Controller;
@@ -267,41 +270,37 @@ class SemanticalBioDeviceController extends Controller
                 //supprime les doublons
                 $dnfArray=array_unique($dnfArray);
                 
-                // Select all from Sequence Where  'dnf' = bindec($veritas->getMinimalOutput() and  
-                // orderby weak_constraint DESC, length ASC
-                
-                //$searchResult = Sequence::find()->where('dnf > :dnf', [':dnf' => $dnfArray[0]])->orderBy('weak_constraint')->all();
-                
+               
                 //TEST QUERY
-                $user = (new Query())->select(['*'])->from('users')->join("INNER JOIN", "comment","users.id_user = comment.id_user")->all();
-                $user = new ArrayDataProvider([
-                    'allModels' => $user,
-                    'sort' => [
-                        'attributes' => ['last_name', 'first_name','content'],
-                    ],
-                    'pagination' => [
-                        'pageSize' => 10,
-                    ],
-                ]);
+                /*$query = (new Query())->select(['*'])->from('boolean_function')->join("INNER JOIN", "permutation_class","boolean_function.permutation_class = permutation_class.permutation_class")
+                        ->join("INNER JOIN", "semantical_bio_device","semantical_bio_device.permutation_class = permutation_class.permutation_class")
+                        ->join("INNER JOIN", "semantics","semantics.id_semantics = semantical_bio_device.id_semantics")
+                        ->join("INNER JOIN", "dyck_functionnal_structure","semantical_bio_device.id_dyck_functionnal_structure = dyck_functionnal_structure.id_dyck_functionnal_structure")
+                        ->where(['dnf' => $dnfArray[0]])->one();
+                */
+        
+
                 
-                /*$user = new ActiveDataProvider(['query' => $query,
-                                               'pagination' =>['pageSize' => 10,],
-                                               'sort' => [
-                                                   'defaultOrder'=> [
-                                                    'created_at' => SORT_DESC,
-                                                    'title' => SORT_ASC, 
-                                                   ]
-                                               ],
-                                              ]);*/
+                $dataProvider = new SqlDataProvider([
+                'sql' => 'SELECT * ' . 
+                'FROM boolean_function ' .
+                'INNER JOIN permutation_class ON (boolean_function.permutation_class = permutation_class.permutation_class) ' .
+                'INNER JOIN semantical_bio_device ON (permutation_class.permutation_class = semantical_bio_device.permutation_class) ' .
+                'INNER JOIN semantics ON (semantical_bio_device.id_semantics = semantics.id_semantics) ' .
+                'INNER JOIN dyck_functionnal_structure ON (semantical_bio_device.id_dyck_functionnal_structure = dyck_functionnal_structure.id_dyck_functionnal_structure) ' .
+                'WHERE dnf=:dnfvalue ' ,
+                'params' => [':dnfvalue' => $dnfArray[0]]
+]);
+                      
                         
-                    $searchResult3 = (new \yii\db\Query())
+                    /*$searchResult3 = (new \yii\db\Query())
                 ->select([ '*'])
                 ->from('sequence')->join("INNER JOIN", 'semantics',"sequence.id_semantics = semantics.id_semantics")
                 ->join("INNER JOIN", 'permutation_class', "sequence.permutation_class = permutation_class.permutation_class")
                 ->join("INNER JOIN", 'dyck_functionnal_structure',"sequence.id_dyck_functionnal_structure = dyck_functionnal_structure.id_dyck_functionnal_structure")
                 ->join("INNER JOIN", 'functions',"functions.permutation_class = permutation_class.permutation_class")
                 ->where(['dnf' => $dnfArray[0]])
-                ->all();
+                ->all();*/
                 //$searchResult2 = Sequence::find()->orderBy('weak_constraint')->joinWith('Permutassion_class')->joinWith('Functions')->where('dnf > :dnf', [':dnf' => $dnfArray[0]]);
                 /*
                 $searchResult3 = (new \yii\db\Query())
@@ -328,12 +327,12 @@ class SemanticalBioDeviceController extends Controller
 
                   $tpl->display('listSeq.html'); */
 
-                return $this->render('result', [
+                return $this->render('result2', [
                             'searchModel' => $searchModel,
-                            'dataProvider' => $searchResult3,
+                            'data' => $dataProvider,
                             'booleanFunction' => $booleanFunction,
                             'veritas' => $veritas,
-                            'user' => $user
+                            
                 ]);
             } catch (\Exception $e) {
                 return $this->render('erreur', [
