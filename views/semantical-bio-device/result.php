@@ -13,7 +13,7 @@ Truth table : <br />
 <?php
 //var_dump($user);
 
- echo GridView::widget([
+ /*echo GridView::widget([
     'dataProvider' => $user,
     'filterModel' => $user,
     'columns' => [
@@ -23,4 +23,4 @@ Truth table : <br />
         'content',
         ['class' => 'yii\grid\ActionColumn'],
     ]
-]); ?>
+]); */?>

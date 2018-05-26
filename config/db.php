@@ -2,8 +2,8 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'pgsql:host=localhost;dbname=genetixdb3',
-    'username' => 'genetixuser',
-    'password' => 'JN7m7a2d',
+    'dsn' => 'pgsql:host=localhost;dbname=genetix',
+    'username' => 'postgres',
+    'password' => 'root',
     'charset' => 'utf8',
 ];
