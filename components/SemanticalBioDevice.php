@@ -497,7 +497,7 @@ class SemanticalBioDevice
 			$this->_parts[$this->_inputs[$inputName][$i]] = SemanticalBioDevice::UCE;
 		
 		else
-			throw new exception($inputName . " is already an used site and cannot be reset to used.");
+			throw new \exception($inputName . " is already an used site and cannot be reset to used.");
 	}
 	
 	private function setSiteUsed ($inputName)
@@ -508,7 +508,7 @@ class SemanticalBioDevice
 			$this->setAMIUsed ($inputName, 1);
 		}
 		else
-			throw new exception($inputName .  " does not exist and cannot be set to used.");
+			throw new \exception($inputName .  " does not exist and cannot be set to used.");
 	}
 	
 	private function integraseReverse ($inputName)
@@ -541,7 +541,7 @@ class SemanticalBioDevice
 				$this->setSiteUsed($inputName);
 		}
 		else
-			throw new exception($inputName .  " does not exist.");
+			throw new \exception($inputName .  " does not exist.");
 	}
 	
 	private function integraseExcise ($inputName)
@@ -584,7 +584,7 @@ class SemanticalBioDevice
 			$this->setSiteUsed($inputName);
 		}
 		else
-			throw new exception($inputName .  " does not exist.");
+			throw new \exception($inputName .  " does not exist.");
 	}
 	
 	public function integrase($inputName)
@@ -599,11 +599,11 @@ class SemanticalBioDevice
 				else if ($this->isAnUnusedExcision($inputName))
 					$this->integraseExcise($inputName);
 				else
-					throw new exception( "Impossible to activate site \"" . $inputName . "\", it is used or does not exit.");
+					throw new \exception( "Impossible to activate site \"" . $inputName . "\", it is used or does not exit.");
 			}
 		}
 		else
-			throw new exception( "Impossible to activate site \"" . $inputName . "\", it is used or does not exit.");
+			throw new \exception( "Impossible to activate site \"" . $inputName . "\", it is used or does not exit.");
 	}
 	
 	public function isAnUnusedExcision ($inputName)
@@ -910,10 +910,10 @@ class SemanticalBioDevice
 		$this->_id_dyck_functionnal_structure = $id;
 	}
 	
-	public function exceptionsIfInvalid ()
+	public function \exceptionsIfInvalid ()
 	{
 		if (!$this->hasEnoughSites())
-			throw new exception (t("Sites must be in pairs."));
+			throw new \exception (t("Sites must be in pairs."));
 	}
 	
 	public function inputNamesList() 
