@@ -12,5 +12,7 @@ use yii\grid\GridView;
         'nb_genes',
         'weak_constraint',
         'nb_inputs',
+        ['class' => 'yii\grid\ActionColumn'
+         ],
     ]
 ]); ?>
