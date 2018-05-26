@@ -545,3 +545,7 @@ $_SERVER = [
 [26-May-2018 14:20:07 UTC] PHP Fatal error:  Class 'Yii\base\Component\SemanticalBioDevice' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 354
 [26-May-2018 14:21:02 UTC] PHP Fatal error:  Class 'app\controllers\app\components\SemanticalBioDevice' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 354
 [26-May-2018 14:21:18 UTC] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting identifier (T_STRING) in /var/www/html/gitAJour/Recombinator2/components/SemanticalBioDevice.php on line 913
+[26-May-2018 14:26:44 UTC] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting identifier (T_STRING) in /var/www/html/gitAJour/Recombinator2/components/SemanticalBioDevice.php on line 913
+[26-May-2018 14:28:03 UTC] PHP Fatal error:  Cannot use app\components\SemanticalBioDevice as SemanticalBioDevice because the name is already in use in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 17
+[26-May-2018 14:28:20 UTC] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting identifier (T_STRING) in /var/www/html/gitAJour/Recombinator2/components/SemanticalBioDevice.php on line 913
+[26-May-2018 14:29:11 UTC] PHP Fatal error:  Class 'app\controllers\VeritasSemanticalBioDevice' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 358

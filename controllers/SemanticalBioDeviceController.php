@@ -14,6 +14,8 @@ use yii\filters\VerbFilter;
 use app\components\BooleanFunction;
 use app\components\VeritasBooleanFunction;
 use app\components\MinimalDisjunctiveForm;
+use app\components\VeritasSemanticalBioDevice;
+use app\components\SemanticalBioDevice as SemanticalBiologicalDevice;
 use yii\db\Query;
 
 /**
@@ -350,7 +352,7 @@ class SemanticalBioDeviceController extends Controller
                 if (empty($_GET['sequence']))
                     throw new \exception(t('The architecture cannot be empty'));
 
-                $semanticalBioDevice = new \app\components\SemanticalBioDevice(urldecode($_GET['sequence']));
+                $semanticalBioDevice = new SemanticalBiologicalDevice(urldecode($_GET['sequence']));
                 $semanticalBioDevice->exceptionsIfInvalid();
 
                 setcookie("sequence", urldecode($_GET['sequence']), time() + 365 * 24 * 3600);

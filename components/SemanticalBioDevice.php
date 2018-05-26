@@ -910,7 +910,7 @@ class SemanticalBioDevice
 		$this->_id_dyck_functionnal_structure = $id;
 	}
 	
-	public function \exceptionsIfInvalid ()
+	public function exceptionsIfInvalid ()
 	{
 		if (!$this->hasEnoughSites())
 			throw new \exception (t("Sites must be in pairs."));
