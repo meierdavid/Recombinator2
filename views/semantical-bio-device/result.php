@@ -10,17 +10,3 @@ Truth table : <br />
  <?php echo $veritas->toHTML()?>
 </div> 
 
-<?php
-//var_dump($user);
-
- /*echo GridView::widget([
-    'dataProvider' => $user,
-    'filterModel' => $user,
-    'columns' => [
-        ['class' => 'yii\grid\SerialColumn'],
-        'last_name',
-        'first_name',
-        'content',
-        ['class' => 'yii\grid\ActionColumn'],
-    ]
-]); */?>
