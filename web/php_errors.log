@@ -549,3 +549,7 @@ $_SERVER = [
 [26-May-2018 14:28:03 UTC] PHP Fatal error:  Cannot use app\components\SemanticalBioDevice as SemanticalBioDevice because the name is already in use in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 17
 [26-May-2018 14:28:20 UTC] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting identifier (T_STRING) in /var/www/html/gitAJour/Recombinator2/components/SemanticalBioDevice.php on line 913
 [26-May-2018 14:29:11 UTC] PHP Fatal error:  Class 'app\controllers\VeritasSemanticalBioDevice' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 358
+[26-May-2018 15:02:56 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /var/www/html/gitAJour/Recombinator2/components/SemanticalBioDevice.php on line 1154
+[26-May-2018 15:13:40 UTC] PHP Parse error:  syntax error, unexpected ',', expecting ']' in /var/www/html/gitAJour/Recombinator2/models/SemanticalBioDevice.php on line 39
+[26-May-2018 15:35:21 UTC] PHP Parse error:  syntax error, unexpected ']' in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 306
+[26-May-2018 15:38:19 UTC] PHP Fatal error:  Class 'LinkPager' not found in /var/www/html/gitAJour/Recombinator2/views/semantical-bio-device/result2.php on line 24

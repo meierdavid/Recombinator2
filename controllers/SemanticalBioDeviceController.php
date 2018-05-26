@@ -246,23 +246,30 @@ class SemanticalBioDeviceController extends Controller
         }
         $dnfArray = [];
         foreach ($functionArray as $key => $value) {
-            try {
+            try 
+            {
                 $fonction = $value;
                 $booleanFunction;
                 $nbVariables;
-                try {
+                try 
+                {
                     $booleanFunction = new BooleanFunction($fonction);
-                } catch (\Exception $e) {
-                    $nbVariables = log(strlen($value)) / log(2);
-                    if (intval($nbVariables) != $nbVariables) {
+                } 
+                catch (\Exception $e) 
+                {
+                    $nbVariables = log(strlen($value),2);
+                    if (intval($nbVariables) != $nbVariables) 
+					{
                         throw new \exception('There should be 2^n figures with n integer');
                     }
                     $fonction = (string) new MinimalDisjunctiveForm($value, $nbVariables);
 
-                    if ($fonction == "0") {
+                    if ($fonction == "0") 
+					{
                         $fonction = "a.!a";
                     }
-                    if ($fonction == "1") {
+                    if ($fonction == "1") 
+					{
                         $fonction = "a+!a";
                     }
                     $booleanFunction = new BooleanFunction($fonction); 
@@ -294,7 +301,17 @@ class SemanticalBioDeviceController extends Controller
                 'params' => [':dnfvalue' => $dnfArray[0]]
 ]);
                       
-
+				$dataProvider->setPagination([
+					'pageSize' => 30,
+				]);
+				foreach ($dataProvider->getModels() as $m)
+				{
+					$sbd = new SemanticalBiologicalDevice();
+					$sbd->hydrate($m);
+					$newModels[] = $sbd->getModel();
+				}
+				
+				$dataProvider->setModels($newModels);
                     /*$searchResult3 = (new \yii\db\Query())
                 ->select([ '*'])
                 ->from('sequence')->join("INNER JOIN", 'semantics',"sequence.id_semantics = semantics.id_semantics")
@@ -334,6 +351,7 @@ class SemanticalBioDeviceController extends Controller
                             'data' => $dataProvider,
                             'booleanFunction' => $booleanFunction,
                             'veritas' => $veritas,
+							'pages' => $dataProvider->getPagination(),
                             
                 ]);
             } catch (\Exception $e) {

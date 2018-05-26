@@ -43,10 +43,12 @@ class SemanticalBioDevice
 	private $_names;
 	private $_weak_constraint;
 	private $_strong_constraint;
+	private $_dnf;
 	private $_nb_parts = 0;
 	private $_gene_at_ends;
 	private $_nb_excisions = 0;
 	private $_nb_inversions = 0;
+	private $_permutation_class;
 	private $_implementedFunctions = null;
 	private static $_primeSequences;
 	private static $_definedPrimeSequences = false;
@@ -1110,6 +1112,16 @@ class SemanticalBioDevice
 	{
 		$this->_nb_inversions = $val;
 	}
+	
+	private function setDnf ($val)
+	{
+		$this->_dnf = $val;
+	}
+	
+	private function setPermutationClass ($val)
+	{
+		$this->_permutation_class = $val;
+	}
 		
 	public function getStrong_constraint () { return $this->_strong_constraint; }
 	public function getNb_parts () { return $this->_nb_parts; }
@@ -1127,6 +1139,31 @@ class SemanticalBioDevice
 	public function getId_dyck_functionnal_structure () { return $this->_id_dyck_functionnal_structure; }
 	public function getWeak_constraint () { return $this->_weak_constraint; }
 	public function getNames () { return $this->_names; }
+	
+	public function getModel ()
+	{
+		$a = [
+		"id_semantics" => $this->_id_semantics,
+		"id_dyck_functionnal_structure" => $this->_id_dyck_functionnal_structure,
+		"nb_parts" => count($this->_parts),
+		"inputs" => $this->_inputs,
+		"nb_genes" => $this->_nb_genes,
+		"length" => $this->_length,
+		"weak_constraint" => (bool) $this->_weak_constraint,
+		"strong_constraint" => (bool) $this->_strong_constraint,
+        "dnf" => $this->_dnf,
+        "permutation_class" => $this->_permutation_class,
+        "nb_inputs" => $this->howManyInputs(),
+        "semantics" => $this->_parts,
+		"gene_at_ends" => $this->_gene_at_ends,
+		"dyck_functionnal_structure" => $this->_dyck_functionnal_structure,
+		"nb_excisions" => $this->_nb_excisions,
+		"nb_inversions" => $this->_nb_inversions,
+		"graphic_format" => $this->toHTML()
+		];
+		
+		return $a;
+	}
 	
 	static function __set_state(array $array) 
 	{

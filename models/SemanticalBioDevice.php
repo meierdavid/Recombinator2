@@ -17,6 +17,7 @@ use Yii;
  * @property DyckFunctionnalStructure $idDickFunctionnalStructure
  * @property PermutationClass $permutationClass
  * @property Semantics $idSemantics
+ * @property string $graphic_format
  */
 class SemanticalBioDevice extends \yii\db\ActiveRecord
 {
@@ -34,6 +35,7 @@ class SemanticalBioDevice extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+			[['graphic_format'], 'safe'],
             [['permutation_class'], 'required'],
             [['permutation_class'], 'integer'],
             [['weak_constraint', 'strong_constraint'], 'boolean'],
@@ -50,6 +52,7 @@ class SemanticalBioDevice extends \yii\db\ActiveRecord
     {
         return [
             'permutation_class' => Yii::t('app', 'Permutation Class'),
+            'graphic_format' => Yii::t('app', 'Graphic format'),
             'weak_constraint' => Yii::t('app', 'Weak Constraint'),
             'strong_constraint' => Yii::t('app', 'Strong Constraint'),
             'id_dyck_functionnal_structure' => Yii::t('app', 'Id Dick Functionnal Structure'),

@@ -20,6 +20,7 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <?php $this->registerCssFile("css/word.css"); ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
