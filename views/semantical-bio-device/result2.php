@@ -5,7 +5,7 @@ use yii\grid\GridView;
 
  echo GridView::widget([
     'dataProvider' => $data,
-    'filterModel' => $data,
+    
     'columns' => [
         ['class' => 'yii\grid\SerialColumn'],
 		['attribute' => 'graphic_format',
@@ -18,13 +18,29 @@ use yii\grid\GridView;
         ['attribute' => 'strong_constraint', 'value' => function($data){ if ($data) return 'respected'; return 'violated'; }],
         'length',
         'nb_inputs',
-        ['class' => 'yii\grid\ActionColumn'
+        ['class' => 'yii\grid\ActionColumn',
+        'header'=>'Actions',
+        'template' => '{view}',
+        'buttons' => [
+
+            //view button
+            'view' => function ($url, $model) {
+                return Html::a('<span class="fa fa-search"></span>View', $url, [
+                            'title' => Yii::t('app', 'View'),
+                            'class'=>'btn btn-primary btn-xs',                                  
+                ]);
+            },
+        ],
+    
+
          ],
     ]
 ]); 
+            
+            
 /*
 echo LinkPager::widget([
     'pagination' => $pages,
 ]);*/
 
-?>
+?>  

@@ -230,6 +230,7 @@ class SemanticalBioDeviceController extends Controller
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         
         $functionArray;
+       // if(isset($_POST['form'])){
         if ($_POST['form'] == 'wellFormedFormula') {
             $functionArray[0] = $_POST['Sequence']['proposition'];
         }
@@ -288,7 +289,12 @@ class SemanticalBioDeviceController extends Controller
                         ->where(['dnf' => $dnfArray[0]])->one();
                 */
         
-
+                $count=Yii::$app->db->createCommand('SELECT COUNT(*)FROM boolean_function INNER JOIN permutation_class ON (boolean_function.permutation_class = permutation_class.permutation_class) 
+                INNER JOIN semantical_bio_device ON (permutation_class.permutation_class = semantical_bio_device.permutation_class) 
+                INNER JOIN semantics ON (semantical_bio_device.id_semantics = semantics.id_semantics) 
+                INNER JOIN dyck_functionnal_structure ON (semantical_bio_device.id_dyck_functionnal_structure = dyck_functionnal_structure.id_dyck_functionnal_structure) 
+                WHERE dnf=:dnfvalue ',[':dnfvalue' => $dnfArray[0]])->queryScalar();
+                var_dump($count);
                 
                 $dataProvider = new SqlDataProvider([
                 'sql' => 'SELECT * ' . 
@@ -298,11 +304,11 @@ class SemanticalBioDeviceController extends Controller
                 'INNER JOIN semantics ON (semantical_bio_device.id_semantics = semantics.id_semantics) ' .
                 'INNER JOIN dyck_functionnal_structure ON (semantical_bio_device.id_dyck_functionnal_structure = dyck_functionnal_structure.id_dyck_functionnal_structure) ' .
                 'WHERE dnf=:dnfvalue ' ,
-                'params' => [':dnfvalue' => $dnfArray[0]]
+                'params' => [':dnfvalue' => $dnfArray[0]],
 ]);
-                      
+                                $dataProvider->setTotalCount($count);
 				$dataProvider->setPagination([
-					'pageSize' => 30,
+					'pageSize' => 2,
 				]);
 				foreach ($dataProvider->getModels() as $m)
 				{
@@ -312,25 +318,10 @@ class SemanticalBioDeviceController extends Controller
 				}
 				
 				$dataProvider->setModels($newModels);
-                    /*$searchResult3 = (new \yii\db\Query())
-                ->select([ '*'])
-                ->from('sequence')->join("INNER JOIN", 'semantics',"sequence.id_semantics = semantics.id_semantics")
-                ->join("INNER JOIN", 'permutation_class', "sequence.permutation_class = permutation_class.permutation_class")
-                ->join("INNER JOIN", 'dyck_functionnal_structure',"sequence.id_dyck_functionnal_structure = dyck_functionnal_structure.id_dyck_functionnal_structure")
-                ->join("INNER JOIN", 'functions',"functions.permutation_class = permutation_class.permutation_class")
-                ->where(['dnf' => $dnfArray[0]])
-                ->all();*/
-                //$searchResult2 = Sequence::find()->orderBy('weak_constraint')->joinWith('Permutassion_class')->joinWith('Functions')->where('dnf > :dnf', [':dnf' => $dnfArray[0]]);
-                /*
-                $searchResult3 = (new \yii\db\Query())
-                ->select(['dyck_functionnal_structure', 'semantics','nb_inputs', 'length','nb_genes', 'gene_at_ends','nb_parts', 'nb_excisions','nb_inversions', 'weak_constraint','strong_constraint'])
-                ->from('sequence','permutation_class','Semantics','dyck_functionnal_structure','functions')
-                ->where(['dnf' => $dnfArray[0]])->all();*/
-                   // chaine de 01 avec la fonction get minimal output
-                //$semanticalBioDevicesManager = new SemanticalBioDevicesManager($bdd);
-                //$booleanFunctionManager = new BooleanFunctionManager($bdd);
-
-                /* $pagination = new Pagination(30, $semanticalBioDevicesManager->getNombre($booleanFunctionManager->getBooleanFunction(
+                                ;
+                
+               
+                /*$pagination = new Pagination(30, $semanticalBioDevicesManager->getNombre($booleanFunctionManager->getBooleanFunction(
                   ['dnf',bindec($veritas->getMinimalOutput ()),DB::SQL_AND,'nb_inputs',$veritas->getMinimalNbInputs()])->getId_fn()),
                   'listSeq.php?output='.$veritas->getMinimalOutput ()."&amp;nbInputs=".$veritas->getMinimalNbInputs());
                   if (isset($_GET['page'])) $pagination->setPageActuelle($_GET['page']);
@@ -345,13 +336,13 @@ class SemanticalBioDeviceController extends Controller
                   'pages' => $pagination->getPages()));
 
                   $tpl->display('listSeq.html'); */
-
+                                
                 return $this->render('result2', [
                             'searchModel' => $searchModel,
                             'data' => $dataProvider,
                             'booleanFunction' => $booleanFunction,
                             'veritas' => $veritas,
-							'pages' => $dataProvider->getPagination(),
+			    
                             
                 ]);
             } catch (\Exception $e) {
@@ -361,7 +352,16 @@ class SemanticalBioDeviceController extends Controller
                             'erreur' => $e->getMessage(),
                 ]);
             }
+      //  }
         }
+        //SI on change de page avec la pagination
+        /*else{
+            
+        
+            return $this->render('result2', [
+                            'data' => $dataProvider, 
+                ]);
+        }*/
     }
 
     public function actionInter_sbd_res() {
