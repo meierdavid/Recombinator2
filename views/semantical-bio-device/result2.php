@@ -2,7 +2,6 @@
 use yii\grid\GridView;
 
 
-
  echo GridView::widget([
     'dataProvider' => $data,
     
@@ -36,11 +35,4 @@ use yii\grid\GridView;
          ],
     ]
 ]); 
-            
-            
-/*
-echo LinkPager::widget([
-    'pagination' => $pages,
-]);*/
-
 ?>  

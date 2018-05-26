@@ -553,3 +553,11 @@ $_SERVER = [
 [26-May-2018 15:13:40 UTC] PHP Parse error:  syntax error, unexpected ',', expecting ']' in /var/www/html/gitAJour/Recombinator2/models/SemanticalBioDevice.php on line 39
 [26-May-2018 15:35:21 UTC] PHP Parse error:  syntax error, unexpected ']' in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 306
 [26-May-2018 15:38:19 UTC] PHP Fatal error:  Class 'LinkPager' not found in /var/www/html/gitAJour/Recombinator2/views/semantical-bio-device/result2.php on line 24
+[26-May-2018 19:01:54 UTC] PHP Parse error:  syntax error, unexpected ']' in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 340
+[26-May-2018 19:02:10 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 342
+[26-May-2018 19:02:35 UTC] PHP Parse error:  syntax error, unexpected ']' in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 344
+[26-May-2018 19:12:11 UTC] PHP Fatal error:  Class 'app\controllers\ActiveQuery' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 324
+[26-May-2018 19:14:37 UTC] PHP Fatal error:  Class 'SemanticalBioDevice' not found in /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/data/ActiveDataProvider.php on line 177
+[26-May-2018 19:25:02 UTC] PHP Fatal error:  Class 'app\controllers\Pagination' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 333
+[26-May-2018 19:29:11 UTC] PHP Fatal error:  Class 'LinkPager' not found in /var/www/html/gitAJour/Recombinator2/views/semantical-bio-device/result2.php on line 42
+[26-May-2018 19:55:53 UTC] PHP Fatal error:  Cannot redeclare app\models\SemanticalBioDevice::$nb_inputs in /var/www/html/gitAJour/Recombinator2/models/SemanticalBioDevice.php on line 38
