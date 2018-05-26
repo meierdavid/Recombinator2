@@ -112,6 +112,20 @@ class BooleanFunction
 		return ((ord($symbol) >= 65 && ord($symbol) <= 90) || (ord($symbol) >= 97 && ord($symbol) <= 122));
 	}
 	
+	public static function insert($tab,$indice,$valeurInsert)
+	{
+		$nouveauTab = array();
+		foreach($tab as $cle=>$valeur)
+		{
+			if ($cle == $indice)
+				array_push($nouveauTab,$valeurInsert);
+			
+			array_push($nouveauTab,$valeur);
+		}
+		
+		return $nouveauTab;
+	}
+	
 	public function loadInfix ($infix)
 	{
 		$infix = trim($infix);
@@ -120,7 +134,7 @@ class BooleanFunction
 		
 		// If the proposition is empty
 		if (strlen($infix) == 0)
-			throw new Exception("The null function is not allowed.");
+			throw new \Exception("The null function is not allowed.");
 		
 		// if it is reduced to one character
 		else if (strlen($infix) == 1)
@@ -133,30 +147,13 @@ class BooleanFunction
 			}
 			
 			else
-				throw new Exception("There is an unauthorized symbol in the function: " . $infix);
+				throw new \Exception("There is an unauthorized symbol in the function: " . $infix);
 		}
 		
 		else
 		{
-			if (!function_exists('insert')) 
-			{
-				function insert($tab,$indice,$valeurInsert)
-				{
-					$nouveauTab = array();
-					foreach($tab as $cle=>$valeur)
-					{
-						if ($cle == $indice)
-							array_push($nouveauTab,$valeurInsert);
-						
-						array_push($nouveauTab,$valeur);
-					}
-					
-					return $nouveauTab;
-				}
-			}
-			
 			if (!$this->isWellBracketted($infix))
-				throw new Exception("The function is not well bracketed: " . $infix);
+				throw new \Exception("The function is not well bracketed: " . $infix);
 			
 			$incompletes = $bracketsToClose = $brackets = array();
 			$i = $j = $incomplete = 0;
@@ -178,14 +175,14 @@ class BooleanFunction
 				else if ($infix[$c] == ')')
 				{
 					if (end($incompletes))
-						throw new Exception("The function is ill-formed: " . $infix);
+						throw new \Exception("The function is ill-formed: " . $infix);
 					
 					$iCB = count($brackets)-1;
 					while ($brackets[$iCB][1] != -1)
 					{
 						--$iCB;
 						if ($iCB < 0)
-							throw new Exception("The function is ill-formed: " . $infix);
+							throw new \Exception("The function is ill-formed: " . $infix);
 					}
 					$brackets[$iCB][1] = $i-1;
 					
@@ -198,11 +195,11 @@ class BooleanFunction
 					{
 						if (!$incompletes[count($incompletes)-1])
 						{
-							$this->_booleanFunction = insert($this->_booleanFunction, end($bracketsToClose), $infix[$c]);
+							$this->_booleanFunction = self::insert($this->_booleanFunction, end($bracketsToClose), $infix[$c]);
 							++$incompletes[count($incompletes)-1];
 						}
 						else 
-							throw new Exception("The function is ill-formed: " . $infix);
+							throw new \Exception("The function is ill-formed: " . $infix);
 					}
 					else
 					{
@@ -212,7 +209,7 @@ class BooleanFunction
 							++$incomplete;
 						}
 						else
-							throw new Exception("The function is ill-formed: " . $infix);
+							throw new \Exception("The function is ill-formed: " . $infix);
 					}
 					++$i;
 				}
@@ -225,7 +222,7 @@ class BooleanFunction
 							$j = $i-1;
 							
 							if ($j < 0 || !$this->isAValidSymbol($this->_booleanFunction[$j]))
-								throw new Exception("The function is ill-formed: " . $infix);
+								throw new \Exception("The function is ill-formed: " . $infix);
 							
 							$bracketBefore = false;
 							
@@ -245,11 +242,11 @@ class BooleanFunction
 									--$j;
 							}
 							
-							$this->_booleanFunction = insert($this->_booleanFunction, $j, $infix[$c]);
+							$this->_booleanFunction = self::insert($this->_booleanFunction, $j, $infix[$c]);
 							++$incompletes[count($incompletes)-1];
 						}
 						else 
-							throw new Exception("The function is ill-formed: " . $infix);
+							throw new \Exception("The function is ill-formed: " . $infix);
 					}
 					else
 					{
@@ -258,7 +255,7 @@ class BooleanFunction
 							$j = $i-1;
 							
 							if ($j < 0 || !$this->isAValidSymbol($this->_booleanFunction[$j]))
-								throw new Exception("The function is ill-formed: " . $infix);
+								throw new \Exception("The function is ill-formed: " . $infix);
 							
 							$bracketBefore = false;
 							
@@ -278,11 +275,11 @@ class BooleanFunction
 									--$j;
 							}
 							
-							$this->_booleanFunction = insert($this->_booleanFunction, $j, $infix[$c]);
+							$this->_booleanFunction = self::insert($this->_booleanFunction, $j, $infix[$c]);
 							++$incomplete;
 						}
 						else
-							throw new Exception("The function is ill-formed: " . $infix);
+							throw new \Exception("The function is ill-formed: " . $infix);
 					}
 					++$i;
 				}
@@ -307,12 +304,12 @@ class BooleanFunction
 				}
 				else 
 				{
-					throw new Exception("The function is ill-formed (unauthorized character): " . $infix);
+					throw new \Exception("The function is ill-formed (unauthorized character): " . $infix);
 				}
 			}
 			
 			if ($incomplete || count($incompletes))
-				throw new Exception("The function is ill-formed: " . $infix);
+				throw new \Exception("The function is ill-formed: " . $infix);
 			
 			ksort($this->_inputs);
 		}

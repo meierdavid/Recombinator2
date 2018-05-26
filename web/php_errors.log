@@ -527,3 +527,12 @@ $_SERVER = [
     'REQUEST_TIME' => 1527333532,
 ]
 [26-May-2018 11:20:08 UTC] PHP Fatal error:  Call to undefined function gets() in /var/www/html/gitAJour/Recombinator2/views/semantics/index.php on line 28
+[26-May-2018 12:22:20 UTC] PHP Fatal error:  Class 'app\components\Exception' not found in /var/www/html/gitAJour/Recombinator2/components/BooleanFunction.php on line 315
+[26-May-2018 12:22:26 UTC] PHP Fatal error:  Class 'app\components\Exception' not found in /var/www/html/gitAJour/Recombinator2/components/BooleanFunction.php on line 315
+[26-May-2018 12:25:54 UTC] PHP Fatal error:  Class 'app\components\Exception' not found in /var/www/html/gitAJour/Recombinator2/components/BooleanFunction.php on line 315
+[26-May-2018 12:25:56 UTC] PHP Fatal error:  Class 'app\components\Exception' not found in /var/www/html/gitAJour/Recombinator2/components/BooleanFunction.php on line 315
+[26-May-2018 12:26:59 UTC] PHP Fatal error:  Class 'app\components\Exception' not found in /var/www/html/gitAJour/Recombinator2/components/BooleanFunction.php on line 315
+[26-May-2018 12:36:36 UTC] PHP Fatal error:  Class 'app\controllers\SequenceSearch' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 223
+[26-May-2018 12:36:57 UTC] PHP Fatal error:  Class 'app\components\Exception' not found in /var/www/html/gitAJour/Recombinator2/components/BooleanFunction.php on line 310
+[26-May-2018 12:38:45 UTC] PHP Fatal error:  Cannot redeclare app\components\insert() (previously declared in /var/www/html/gitAJour/Recombinator2/components/BooleanFunction.php:143) in /var/www/html/gitAJour/Recombinator2/components/BooleanFunction.php on line 143
+[26-May-2018 12:42:22 UTC] PHP Fatal error:  Class 'app\controllers\Query' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 275
