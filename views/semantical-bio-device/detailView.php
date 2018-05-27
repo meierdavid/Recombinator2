@@ -8,5 +8,5 @@ Size : <?php echo $semanticalBioDevice->getLength(); ?> bases <br />
 Symmetric : <?php echo $semanticalBioDevice->getSymetric()->toHTML() ?> <br />
 Truth table : <br />
 <?php echo $veritas->toHTML(); ?>
-<a class="minibouton" href="listSeq.php?output=<?php echo $veritas->getMinimalOutput(); ?>&amp;nbInputs=<?php echo $veritas->getMinimalNbInputs();?>"><span>See sequences implementing the same function.</span></a>
+<a class="minibouton" href="index.php?r=semantical-bio-device%2Fsearch_sbd_treatment&amp;form=BinaryNumber&amp;data=<?php echo $veritas->getMinimalOutput(); ?>"><span>See sequences implementing the same function.</span></a>
 </div>

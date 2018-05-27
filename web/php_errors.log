@@ -561,3 +561,23 @@ $_SERVER = [
 [26-May-2018 19:25:02 UTC] PHP Fatal error:  Class 'app\controllers\Pagination' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 333
 [26-May-2018 19:29:11 UTC] PHP Fatal error:  Class 'LinkPager' not found in /var/www/html/gitAJour/Recombinator2/views/semantical-bio-device/result2.php on line 42
 [26-May-2018 19:55:53 UTC] PHP Fatal error:  Cannot redeclare app\models\SemanticalBioDevice::$nb_inputs in /var/www/html/gitAJour/Recombinator2/models/SemanticalBioDevice.php on line 38
+[26-May-2018 20:31:03 UTC] PHP Fatal error:  Class 'app\controllers\Sort' not found in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 351
+[26-May-2018 20:41:11 UTC] PHP Fatal error:  Class 'app\components\Exception' not found in /var/www/html/gitAJour/Recombinator2/components/SemanticalBioDevice.php on line 242
+[26-May-2018 20:41:12 UTC] PHP Fatal error:  Class 'app\components\Exception' not found in /var/www/html/gitAJour/Recombinator2/components/SemanticalBioDevice.php on line 242
+[26-May-2018 20:41:12 UTC] PHP Fatal error:  Class 'app\components\Exception' not found in /var/www/html/gitAJour/Recombinator2/components/SemanticalBioDevice.php on line 242
+[26-May-2018 20:41:12 UTC] PHP Fatal error:  Call to undefined function app\components\t() in /var/www/html/gitAJour/Recombinator2/components/SemanticalBioDevice.php on line 918
+[26-May-2018 20:41:13 UTC] PHP Fatal error:  Call to undefined function app\components\t() in /var/www/html/gitAJour/Recombinator2/components/SemanticalBioDevice.php on line 918
+[26-May-2018 20:44:29 UTC] PHP Fatal error:  Class 'app\components\Exception' not found in /var/www/html/gitAJour/Recombinator2/components/SemanticalBioDevice.php on line 242
+[26-May-2018 20:44:55 UTC] PHP Fatal error:  Can only throw objects in /var/www/html/gitAJour/Recombinator2/components/SemanticalBioDevice.php on line 242
+[26-May-2018 20:44:56 UTC] PHP Fatal error:  Can only throw objects in /var/www/html/gitAJour/Recombinator2/components/SemanticalBioDevice.php on line 242
+[26-May-2018 20:44:58 UTC] PHP Fatal error:  Can only throw objects in /var/www/html/gitAJour/Recombinator2/components/SemanticalBioDevice.php on line 242
+[26-May-2018 20:44:58 UTC] PHP Fatal error:  Can only throw objects in /var/www/html/gitAJour/Recombinator2/components/SemanticalBioDevice.php on line 242
+[26-May-2018 20:45:02 UTC] PHP Fatal error:  Can only throw objects in /var/www/html/gitAJour/Recombinator2/components/SemanticalBioDevice.php on line 242
+[26-May-2018 20:49:56 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 260
+[26-May-2018 20:50:30 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 260
+[26-May-2018 21:06:53 UTC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 364
+[26-May-2018 21:07:13 UTC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 427
+[26-May-2018 21:20:33 UTC] PHP Fatal error:  Call to a member function getGenes_at_ends() on a non-object in /var/www/html/gitAJour/Recombinator2/views/semantical-bio-device/result2.php on line 15
+[26-May-2018 21:22:48 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ']' in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 327
+[26-May-2018 21:24:47 UTC] PHP Parse error:  syntax error, unexpected ']' in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 344
+[26-May-2018 21:47:12 UTC] PHP Parse error:  syntax error, unexpected '"&amp;dnf="' (T_CONSTANT_ENCAPSED_STRING) in /var/www/html/gitAJour/Recombinator2/views/semantical-bio-device/result2.php on line 30
