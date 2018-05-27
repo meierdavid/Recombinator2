@@ -40,9 +40,9 @@ Length: <br />
 
 <?php
 
+
  echo GridView::widget([
     'dataProvider' => $data,
-    
     'columns' => [
         ['class' => 'yii\grid\SerialColumn'],
 		['attribute' => 'architecture',
