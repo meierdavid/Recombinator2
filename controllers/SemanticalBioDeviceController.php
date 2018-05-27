@@ -17,6 +17,7 @@ use app\components\MinimalDisjunctiveForm;
 use app\components\VeritasSemanticalBioDevice;
 use app\components\SemanticalBioDevice as SemanticalBiologicalDevice;
 use yii\db\Query;
+use yii\data\Pagination;
 
 /**
  * SemanticalBioDeviceController implements the CRUD actions for SemanticalBioDevice model.
@@ -229,6 +230,7 @@ class SemanticalBioDeviceController extends Controller
         $searchModel = new SemanticalBioDeviceSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         
+        
         $functionArray;
        // if(isset($_POST['form'])){
         if ($_POST['form'] == 'wellFormedFormula') {
@@ -289,7 +291,7 @@ class SemanticalBioDeviceController extends Controller
                         ->where(['dnf' => $dnfArray[0]])->one();
                 */
         
-                $count=Yii::$app->db->createCommand('SELECT COUNT(*)FROM boolean_function INNER JOIN permutation_class ON (boolean_function.permutation_class = permutation_class.permutation_class) 
+            /*    $count=Yii::$app->db->createCommand('SELECT COUNT(*)FROM boolean_function INNER JOIN permutation_class ON (boolean_function.permutation_class = permutation_class.permutation_class) 
                 INNER JOIN semantical_bio_device ON (permutation_class.permutation_class = semantical_bio_device.permutation_class) 
                 INNER JOIN semantics ON (semantical_bio_device.id_semantics = semantics.id_semantics) 
                 INNER JOIN dyck_functionnal_structure ON (semantical_bio_device.id_dyck_functionnal_structure = dyck_functionnal_structure.id_dyck_functionnal_structure) 
@@ -307,6 +309,7 @@ class SemanticalBioDeviceController extends Controller
                 'params' => [':dnfvalue' => $dnfArray[0]],
 ]);
                                 $dataProvider->setTotalCount($count);
+                                
 				$dataProvider->setPagination([
 					'pageSize' => 2,
 				]);
@@ -317,9 +320,52 @@ class SemanticalBioDeviceController extends Controller
 					$newModels[] = $sbd->getModel();
 				}
 				
-				$dataProvider->setModels($newModels);
-                                ;
+				$dataProvider->setModels($newModels);*/
+                                
                 
+				$query = new Query;
+				// compose the query
+				$query
+					->from('boolean_function')
+					->innerjoin('permutation_class', "boolean_function.permutation_class = permutation_class.permutation_class")
+					->innerjoin('semantical_bio_device', "permutation_class.permutation_class = semantical_bio_device.permutation_class")
+					->innerjoin('semantics', "semantical_bio_device.id_semantics = semantics.id_semantics")
+					->innerjoin('dyck_functionnal_structure', "semantical_bio_device.id_dyck_functionnal_structure = dyck_functionnal_structure.id_dyck_functionnal_structure")
+					;
+				
+				foreach ($dnfArray as $dnf)
+				{
+					$query->orwhere(["dnf" => $dnf]);
+				}
+					
+				$pages = new Pagination(['totalCount' => $query->count()]);
+				$provider = new ActiveDataProvider([
+					'query' => $query,
+					'pagination' => $pages,
+					'sort' => [
+						'defaultOrder' => [
+							'length' => SORT_ASC,
+							'weak_constraint' => SORT_DESC, 
+						],
+						'attributes' => [
+							'weak_constraint',
+							'strong_constraint',
+							'length',
+							'nb_inputs',
+							'gene_at_ends',
+							'nb_parts',
+							'nb_genes'
+						],
+				],]);
+				
+				$newModels = [];  
+				foreach ($provider->getModels() as $m)
+				{
+					$sbd = new SemanticalBiologicalDevice();
+					$sbd->hydrate($m);
+					$newModels[] = $sbd->getModel();
+				}
+				$provider->setModels($newModels);
                
                 /*$pagination = new Pagination(30, $semanticalBioDevicesManager->getNombre($booleanFunctionManager->getBooleanFunction(
                   ['dnf',bindec($veritas->getMinimalOutput ()),DB::SQL_AND,'nb_inputs',$veritas->getMinimalNbInputs()])->getId_fn()),
@@ -339,16 +385,16 @@ class SemanticalBioDeviceController extends Controller
                                 
                 return $this->render('result2', [
                             'searchModel' => $searchModel,
-                            'data' => $dataProvider,
+                            'data' => $provider,
                             'booleanFunction' => $booleanFunction,
                             'veritas' => $veritas,
-			    
+							'pages'=>$pages
                             
                 ]);
             } catch (\Exception $e) {
                 return $this->render('erreur', [
                             'searchModel' => $searchModel,
-                            'dataProvider' => $dataProvider,
+                            'dataProvider' => $provider,
                             'erreur' => $e->getMessage(),
                 ]);
             }

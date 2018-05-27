@@ -1,9 +1,10 @@
 <?php use yii\helpers\Html;
 use yii\grid\GridView;
 
-  echo GridView::widget([
+
+
+ echo GridView::widget([
     'dataProvider' => $data,
-    
     'columns' => [
         ['class' => 'yii\grid\SerialColumn'],
 		['attribute' => 'graphic_format',
@@ -34,11 +35,4 @@ use yii\grid\GridView;
          ],
     ]
 ]); 
-            
-            
-/*
-echo LinkPager::widget([
-    'pagination' => $pages,
-]);*/
-
 ?>  
