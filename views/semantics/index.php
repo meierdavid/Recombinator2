@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id_semantics',
-            //'semantics',
+			['attribute' => 'semantics', 'value' => function($data){  return implode(':',array_map('ord', str_split(fgets($data['semantics'])))); }],
             'length',
             'nb_genes',
             'nb_parts',

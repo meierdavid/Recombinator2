@@ -581,3 +581,16 @@ $_SERVER = [
 [26-May-2018 21:22:48 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ']' in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 327
 [26-May-2018 21:24:47 UTC] PHP Parse error:  syntax error, unexpected ']' in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 344
 [26-May-2018 21:47:12 UTC] PHP Parse error:  syntax error, unexpected '"&amp;dnf="' (T_CONSTANT_ENCAPSED_STRING) in /var/www/html/gitAJour/Recombinator2/views/semantical-bio-device/result2.php on line 30
+[27-May-2018 09:30:16 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 325
+[27-May-2018 09:43:16 UTC] PHP Fatal error:  Class 'ActiveForm' not found in /var/www/html/gitAJour/Recombinator2/views/semantical-bio-device/result2.php on line 6
+[27-May-2018 09:50:26 UTC] PHP Fatal error:  Class 'Url' not found in /var/www/html/gitAJour/Recombinator2/views/semantical-bio-device/result2.php on line 9
+[27-May-2018 09:50:53 UTC] PHP Fatal error:  Class 'Url' not found in /var/www/html/gitAJour/Recombinator2/views/semantical-bio-device/result2.php on line 10
+[27-May-2018 09:51:05 UTC] PHP Fatal error:  Call to a member function getCount() on a non-object in /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php on line 182
+[27-May-2018 09:55:52 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 323
+[27-May-2018 09:56:31 UTC] PHP Fatal error:  Call to a member function getCount() on a non-object in /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php on line 182
+[27-May-2018 09:59:22 UTC] PHP Fatal error:  Call to a member function getCount() on a non-object in /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php on line 182
+[27-May-2018 09:59:49 UTC] PHP Fatal error:  Call to a member function getCount() on a non-object in /var/www/html/gitAJour/Recombinator2/vendor/yiisoft/yii2/widgets/BaseListView.php on line 182
+[27-May-2018 10:18:47 UTC] PHP Parse error:  syntax error, unexpected ')' in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 329
+[27-May-2018 12:16:25 UTC] PHP Fatal error:  Cannot redeclare app\controllers\SemanticalBioDeviceController::actionView() in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 478
+[27-May-2018 12:20:13 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /var/www/html/gitAJour/Recombinator2/controllers/SemanticalBioDeviceController.php on line 489
+[27-May-2018 13:14:28 UTC] PHP Fatal error:  Class 'app\components\Logic' not found in /var/www/html/gitAJour/Recombinator2/components/Veritas.php on line 54

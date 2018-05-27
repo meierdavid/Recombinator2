@@ -51,8 +51,8 @@
 	    if ($minimal == "1" || $minimal == "0")
 		return $minimal;
 		
-	    $logic = new Logic($minimal);
-	    $veritas = new VeritasLogic($logic);
+	    $logic = new BooleanFunction($minimal);
+	    $veritas = new VeritasBooleanFunction($logic);
 	    
 	    return $veritas->outputToString();
 	}
@@ -63,8 +63,8 @@
 	    if ($minimal == "1" || $minimal == "0")
 		return $minimal;
 		
-	    $logic = new Logic($minimal);
-	    $veritas = new VeritasLogic($logic);
+	    $logic = new BooleanFunction($minimal);
+	    $veritas = new VeritasBooleanFunction($logic);
 	    
 	    return $veritas->_howManyInputs;
 	}

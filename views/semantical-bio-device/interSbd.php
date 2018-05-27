@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
     
     <div class="cadreh1">
         <form method="post" action="#" onsubmit="return false;">
-            <label for="sequence">Enter an architecture</label>&nbsp;:&nbsp;<input type="text" class="post" style="width: 320px" id="sequence" name="sequence" />
+            <label for="sequence">Enter an architecture</label>&nbsp;:&nbsp;<input value="<?php echo $sequence; ?>" type="text" class="post" style="width: 320px" id="sequence" name="sequence" />
              <input type="submit" name="submit" id="submit" class="btn btn-success" value="Interpret" class='mainoption'/>
             
         </form>

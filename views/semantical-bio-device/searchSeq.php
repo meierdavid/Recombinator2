@@ -17,17 +17,17 @@ use yii\widgets\ActiveForm;
 ]); ?>
     <input type="radio" id="wellFormedFormula"
            name="form" value="wellFormedFormula" checked>
-    <label for="contactChoice1">well-Formed Formula</label>
+    <label for="wellFormedFormula">well-Formed Formula</label>
     
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="radio" id="BinaryNumber"
      name="form" value="BinaryNumber" >
-    <label for="contactChoice2">Binary Number</label>
+    <label for="BinaryNumber">Binary Number</label>
     
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="radio" id="MultipleFunction"
      name="form" value="MultipleFunction" >
-    <label for="contactChoice3">Multiple Function</label>
+    <label for="MultipleFunction">Multiple Function</label>
     
         <div id="wff" class="form-group field-sequence-proposition required">
         <label class="control-label" for="sequence-proposition">well-Formed Formula</label>

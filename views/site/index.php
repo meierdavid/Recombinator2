@@ -13,7 +13,7 @@ $this->title = 'My Yii Application';
     <div class="body-content">
 
         <div class="row">
-            <div class="col-lg-4">
+           <!-- <div class="col-lg-4">
                 <h2>List of functions</h2>
 
                 <p>Exhaustive list of logicals functions from 1 to 4 inputs. These functions are featured with more details such as their normal
@@ -21,7 +21,7 @@ $this->title = 'My Yii Application';
                     page.</p>
 
                 <p><a class="btn btn-default" href="index.php?r=permutationclasses%2Findex">List of functions &raquo;</a></p>
-            </div>
+            </div>-->
             <div class="col-lg-4">
                 <h2>Interpret a sequence</h2>
 
@@ -29,7 +29,7 @@ $this->title = 'My Yii Application';
                     the logical implemented function, the size of the sequence, its symetric and its truth table. In addition to that, you can 
                     also see the sequences which implement the same logical function.</p>
 
-                <p><a class="btn btn-default" href="index.php?r=logicalfunction%2Findex">Interpret a sequence &raquo;</a></p>
+                <p><a class="btn btn-default" href="index.php?r=semantical-bio-device%2Finter_sbd">Interpret a sequence &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <h2>Search a sequence</h2>

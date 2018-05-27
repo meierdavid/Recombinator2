@@ -82,8 +82,8 @@ class VeritasSemanticalBioDevice extends Veritas
 		$table .= '<th class="thCornerL">Séquence</th>';
 		foreach ($inputNames as $name)
 		{
-			$table .= '<th>' . $name;
-			$table .= "</th>";
+			$table .= '<th><span class="site_' . $name . '">' . $name;
+			$table .= "</span></th>";
 		}
 		
 		$table .= '<th class="thCornerR"> outputs </th></tr></thead>';

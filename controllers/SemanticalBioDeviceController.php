@@ -61,12 +61,12 @@ class SemanticalBioDeviceController extends Controller
      * @param integer $id_semantics
      * @return mixed
      */
-    public function actionView($id_dyck_functionnal_structure, $id_semantics)
+   /* public function actionView($id_dyck_functionnal_structure, $id_semantics)
     {
         return $this->render('view', [
             'model' => $this->findModel($id_dyck_functionnal_structure, $id_semantics),
         ]);
-    }
+    }*/
 
     /**
      * Creates a new SemanticalBioDevice model.
@@ -306,11 +306,58 @@ class SemanticalBioDeviceController extends Controller
 		//supprime les doublons
 		$dnfArray=array_unique($dnfArray);
 		
+		$criteresFonctions = [];
+		if (1 != count($dnfArray))
+		{
+			for ($i = 0; $i < count($dnfArray); ++$i)
+			{
+				if ($i == 0) 
+				{
+					$criteresFonctions[] = 'or';
+				}
+				$criteresFonctions[] = ['dnf' => $dnfArray[$i]];
+			}
+		}
+		else 
+		{
+			$criteresFonctions['dnf'] = $dnfArray[0];
+		}
+		
 		// Partie critères de sélection
-		$criteres = [];
+		$criteres = ['and'];
+		$transmission = [];
 		
+		foreach (($_SERVER['REQUEST_METHOD'] == 'POST' ? $_POST: $_GET) as $key => $value)
+		{
+			$colonne = lcfirst(substr($key,3));
+			if (substr($key,0,3) == 'min' && $value > 0)
+			{
+				$criteres[] = ['>=', $colonne, intval($value)];
+				$transmission[$key] = $value;
+			}
+			else if (substr($key,0,3) == 'max' && $value != 99)
+			{
+				$criteres[] = ['<=', $colonne, intval($value)];
+				$transmission[$key] = $value;
+			}
+			else if (in_array($key, ['weak_constraint', 'strong_constraint', 'gene_at_ends']))
+			{
+				$criteres[] = [$key => 1];
+				$transmission[$key] = 1;
+			}
+		}
+		
+		// Si aucune option de filtrage n'a été sélectionnée, nos critères c'est juste les fonctions
+		if (count($criteres) == 1)
+		{
+			$criteres = $criteresFonctions;
+		}
+		else // Sinon, on ajoute les fonctions aux autres critères
+		{
+			$criteres[] = $criteresFonctions;
+		}
 		// Fin partie criteres
-		
+		print_r($criteres);
 		$query = new Query;
 		// compose the query
 		$query
@@ -318,17 +365,12 @@ class SemanticalBioDeviceController extends Controller
 		->innerjoin('permutation_class', "boolean_function.permutation_class = permutation_class.permutation_class")
 		->innerjoin('semantical_bio_device', "permutation_class.permutation_class = semantical_bio_device.permutation_class")
 		->innerjoin('semantics', "semantical_bio_device.id_semantics = semantics.id_semantics")
-		->innerjoin('dyck_functionnal_structure', "semantical_bio_device.id_dyck_functionnal_structure = dyck_functionnal_structure.id_dyck_functionnal_structure")
-		;
+		->innerjoin('dyck_functionnal_structure', "semantical_bio_device.id_dyck_functionnal_structure = dyck_functionnal_structure.id_dyck_functionnal_structure");
 		
-		foreach ($dnfArray as $dnf)
-		{
-			$query->orwhere(["dnf" => $dnf]);
-		}
-		
+		$query->where($criteres);
 		$pages = new Pagination([
 			'totalCount' => $query->count(),
-			'params' => array_merge($_GET, ['form' => $form, 'data' => $data])]);
+			'params' => array_merge($_GET, ['form' => $form, 'data' => $data], $transmission)]);
 		
 		$sort = new Sort([
 			'enableMultiSort' => true,
@@ -345,7 +387,7 @@ class SemanticalBioDeviceController extends Controller
 				'nb_parts',
 				'nb_genes',
 				'dnf'],
-			'params' => array_merge($_GET, ['form' => $form, 'data' => $data])
+			'params' => array_merge($_GET, ['form' => $form, 'data' => $data], $transmission)
 		]);
 		
 		$provider = new ActiveDataProvider([
@@ -368,11 +410,13 @@ class SemanticalBioDeviceController extends Controller
 			'data' => $provider,
 			'booleanFunction' => $booleanFunction,
 			'veritas' => $veritas,
-			'pages'=>$pages
+			'pages' => $pages,
+			'form' => $form,
+			'dataForm' => $data
 		]);
 	}
 
-    public function actionInter_sbd_res() {
+    public function actionInter_sbd_res($dnf = null) {
         if (isset($_GET['sequence'])) {
             try {
                 if (empty($_GET['sequence']))
@@ -380,11 +424,16 @@ class SemanticalBioDeviceController extends Controller
 
                 $semanticalBioDevice = new SemanticalBiologicalDevice(urldecode($_GET['sequence']));
                 $semanticalBioDevice->exceptionsIfInvalid();
+                
+                if ($dnf != null)
+				{
+					$semanticalBioDevice->setImplementedFunction($dnf);
+				}
 
                 setcookie("sequence", urldecode($_GET['sequence']), time() + 365 * 24 * 3600);
                 $veritas = new VeritasSemanticalBioDevice($semanticalBioDevice);
 
-                return $this->render('detailView', [
+                return $this->renderPartial('detailView', [
                             'semanticalBioDevice' => $semanticalBioDevice,
                             'veritas' => $veritas,
                 ]);
@@ -415,14 +464,65 @@ class SemanticalBioDeviceController extends Controller
         if (isset($_POST['Sequence']['proposition'])) {
 
             // requete SQL A VOIR AVEC GUIGUI
-
             return $this->render('listeResult', [
+						'sequence' => (isset($_COOKIE['sequence']) ? $_COOKIE['sequence'] : ""),
                         'model' => $model,
             ]);
         } else {
             return $this->render('interSbd', [
+						'sequence' => (isset($_COOKIE['sequence']) ? $_COOKIE['sequence'] : ""),
                         'model' => $model,
             ]);
         }
+    }
+
+    public function actionView($id_dyck_functionnal_structure, $id_semantics, $dnf = null, $ajax = null) 
+    {
+		$query = new Query;
+		// compose the query
+		$query
+		->from('boolean_function')
+		->innerjoin('permutation_class', "boolean_function.permutation_class = permutation_class.permutation_class")
+		->innerjoin('semantical_bio_device', "permutation_class.permutation_class = semantical_bio_device.permutation_class")
+		->innerjoin('semantics', "semantical_bio_device.id_semantics = semantics.id_semantics")
+		->innerjoin('dyck_functionnal_structure', "semantical_bio_device.id_dyck_functionnal_structure = dyck_functionnal_structure.id_dyck_functionnal_structure");
+		
+		$query->where(
+			['semantical_bio_device.id_dyck_functionnal_structure' => $id_dyck_functionnal_structure, 
+			'semantical_bio_device.id_semantics' => $id_semantics]);
+		
+		$provider = new ActiveDataProvider([
+			'query' => $query
+		]);
+		
+		if ($provider->getCount() == 0)
+		{
+			throw new \Exception("This architecture doesn't exist !");
+		}
+
+		$semanticalBioDevice = new SemanticalBiologicalDevice;
+		$semanticalBioDevice->hydrate($provider->getModels()[0]);
+		
+		if ($dnf != null)
+		{
+			$semanticalBioDevice->setImplementedFunction($dnf);
+		}
+
+		$veritas = new VeritasSemanticalBioDevice($semanticalBioDevice);
+
+		if ($ajax == null)
+		{
+			return $this->render('view', [
+						'semanticalBioDevice' => $semanticalBioDevice,
+						'veritas' => $veritas,
+			]);
+		}
+		else
+		{
+			return $this->renderPartial('view', [
+						'semanticalBioDevice' => $semanticalBioDevice,
+						'veritas' => $veritas,
+			]);
+		}
     }
 }

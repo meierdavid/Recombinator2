@@ -48,7 +48,7 @@ AppAsset::register($this);
         'items' => [
             
             ['label' => 'Home page', 'url' => ['/site/index']],
-            Yii::$app->user->isGuest ? (
+            /*Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
                 '<li>'
@@ -59,7 +59,7 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>'
-            )
+            )*/
         ],
     ]);
     NavBar::end();
